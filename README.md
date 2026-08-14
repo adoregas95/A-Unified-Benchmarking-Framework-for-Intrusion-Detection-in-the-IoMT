@@ -98,7 +98,7 @@ A **Multi-Criteria Decision Making (MCDM)** composite score ranks models: `Final
 ### Installation
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/iomt-ids-framework.git
+git clone https://github.com/adoregas95/iomt-ids-framework.git
 cd iomt-ids-framework
 pip install -r requirements.txt
 ```
