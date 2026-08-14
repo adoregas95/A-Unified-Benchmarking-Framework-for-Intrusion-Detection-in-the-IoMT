@@ -1,0 +1,9 @@
+rank,family,model,f1_weighted,f1_macro,accuracy,mcc,precision_weighted,recall_weighted,inference_latency_ms,peak_memory_mb_inference,model_parameter_count
+1,Tree-Based,RandomForest,0.9999,0.6485,0.9999,0.3288,0.9999,0.9999,0.0008,400.8371,227100
+2,Tree-Based,LightGBM,0.9998,0.6012,0.9998,0.2190,0.9999,0.9998,0.0060,51.3643,2000
+3,Tree-Based,CatBoost,0.9998,0.5980,0.9997,0.2233,0.9999,0.9997,0.0003,20.5451,1228200
+4,Tree-Based,XGBoost,0.9997,0.5895,0.9995,0.2399,0.9999,0.9995,0.0007,16.6978,60430
+5,Transformer,FTTransformer,0.9997,0.5783,0.9995,0.2106,0.9999,0.9995,0.0054,215.7205,189410
+6,Deep Learning,CNN1D,0.9996,0.5796,0.9994,0.2361,0.9999,0.9994,0.0056,10.5167,1545090
+7,Deep Learning,BiLSTM,0.9996,0.5752,0.9994,0.2298,0.9999,0.9994,0.0042,10.5165,106370
+8,Transformer,SAINT,0.9996,0.5760,0.9993,0.2438,0.9999,0.9993,0.0059,215.7205,3458178

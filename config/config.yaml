@@ -1,0 +1,217 @@
+# =============================================================================
+# Dissertation Central Configuration
+# A Unified Benchmarking Framework for Intrusion Detection in the IoMT
+# =============================================================================
+
+project:
+  name: "IoMT-IDS-Framework"
+  author: "Oswald Adohinzin"
+  seed: 42
+
+# ---------------------------------------------------------------------------
+# Datasets
+# ---------------------------------------------------------------------------
+datasets:
+  CICIoMT2024:
+    path: "data/CICIoMT2024"
+    train_dir: "CSV"                # CICFlowMeter-extracted CSVs (train/test by filename)
+    n_features: 76                  # 83 CICFlowMeter columns - 7 flow identifiers
+    n_raw_columns: 86               # 83 CICFlowMeter + Label + Class + Sub-Class
+    feature_extractor: "CICFlowMeter"
+    role: "primary"
+
+  CIC-BoT-IoT:
+    path: "data/CIC-BoT-IoT"
+    n_features: 76                  # same 76 ML features after column rename
+    n_raw_columns: 83               # abbreviated CICFlowMeter column names
+    feature_extractor: "CICFlowMeter"
+    role: "cross_dataset"
+
+  CIC-IoT-DIAD-2024:
+    path: "data/CIC-IoT-DIAD-2024"
+    n_features: 76                  # same 76 ML features (full column names)
+    n_raw_columns: 83               # CICFlowMeter columns + Label
+    feature_extractor: "CICFlowMeter"
+    role: "cross_dataset"
+
+  CIC-ToN-IoT:
+    path: "data/CIC-ToN-IoT"
+    n_features: 76                  # same 76 ML features after column rename
+    n_raw_columns: 83               # abbreviated CICFlowMeter column names
+    feature_extractor: "CICFlowMeter"
+    role: "cross_dataset"
+    notes: "Adds novel attack types: Ransomware, XSS, MITM, Injection, Password"
+
+# ---------------------------------------------------------------------------
+# Classification Tasks
+# ---------------------------------------------------------------------------
+tasks:
+  binary:
+    id: 2
+    n_classes: 2
+    description: "Benign vs. Attack"
+    cross_dataset: true            # applicable to cross-dataset generalization
+  six_class:
+    id: 6
+    n_classes: 6
+    description: "Benign + 5 attack families (DDoS, DoS, Recon, MQTT, Spoofing)"
+    cross_dataset: true            # applicable (evaluated on shared-class intersection)
+  nineteen_class:
+    id: 19
+    n_classes: 19                  # Benign + 18 individual attack types
+    description: "Benign + 18 individual attack types (19 classes total)"
+    cross_dataset: false           # NOT applicable (labels are CICIoMT2024-specific)
+
+# ---------------------------------------------------------------------------
+# Preprocessing
+# ---------------------------------------------------------------------------
+preprocessing:
+  scaling: "robust"           # "robust" (default), "minmax", or "standard"
+  imbalance_method: "smoteenn"    # "smoteenn" (default), "smotetomek", "smote", or "none"
+  random_state: 42
+  cache_dir: "preprocessing/cache"
+  test_size: 0.2              # train/test split ratio (for datasets without pre-split)
+
+# ---------------------------------------------------------------------------
+# Feature Selection
+# ---------------------------------------------------------------------------
+feature_selection:
+  method: "mutual_information"
+  # Cumulative MI threshold: retain features that collectively account for
+  # this fraction of total mutual information. Adaptive per task — binary
+  # may keep fewer features than 19-class because information is more
+  # concentrated. This replaces fixed k-value sweeps.
+  mi_threshold: 0.90               # keep features covering 90% of total MI
+  # Transformers: always use full feature set (no feature selection)
+  # Rationale: conference paper showed 64-point F1 gap when feature
+  # selection was applied to transformers (attention learns its own weighting)
+  transformers_use_all: true
+  # No Pearson pruning — removed by design decision (see DESIGN_DECISIONS.md)
+
+# ---------------------------------------------------------------------------
+# Hyperparameter Optimization
+# ---------------------------------------------------------------------------
+hpo:
+  tool: "optuna"
+  sampler: "TPE"
+  validation_split: 0.15     # stratified holdout from training data
+  storage_dir: "logs/optuna_dbs"
+  budgets:
+    tree_based: 50      # generous for one-shot results
+    deep_learning: 50   # generous for one-shot results
+    transformers: 100   # large search space needs more exploration
+
+# ---------------------------------------------------------------------------
+# Training
+# ---------------------------------------------------------------------------
+training:
+  early_stopping:
+    patience: 10
+    min_delta: 0.001
+    monitor: "val_f1"
+  gradient_clip: 1.0          # for DL and Transformer models
+  max_epochs:
+    deep_learning: 50
+    transformers: 50
+  batch_sizes: [256, 512, 1024]  # searched during HPO
+
+# ---------------------------------------------------------------------------
+# Evaluation
+# ---------------------------------------------------------------------------
+evaluation:
+  # Dual primary metric strategy:
+  #   CICIoMT2024: weighted F1 (reflects real-world traffic distribution)
+  #   Cross-dataset: macro F1 (equal weight to all attack families)
+  primary_metric: "f1_weighted"           # for CICIoMT2024 ranking
+  cross_dataset_metric: "f1_macro"        # for cross-dataset ranking
+  metrics:
+    # Weighted-average (primary for CICIoMT2024)
+    - accuracy
+    - precision_weighted
+    - recall_weighted
+    - f1_weighted
+    # Macro-average (primary for cross-dataset generalization)
+    - precision_macro
+    - recall_macro
+    - f1_macro
+    # Matthews Correlation Coefficient (complementary balanced measure)
+    - mcc
+    # Per-class detail
+    - per_class_f1
+  efficiency:
+    - training_time_seconds
+    - inference_latency_ms_per_sample    # model prediction only
+    - end_to_end_latency_ms_per_sample   # preprocessing + prediction
+    - batch_throughput_samples_per_sec    # full test set throughput
+    - model_parameter_count
+    - peak_memory_mb_training
+    - peak_memory_mb_inference
+    - gpu_power_watts_inference           # via nvidia-smi power monitoring
+    - energy_joules_per_sample            # watts * seconds / n_samples
+  explainability:
+    # Two-stage approach:
+    # Stage 1: Lightweight SHAP global feature importance for ALL models
+    # Stage 2: Full SHAP + LIME for top model per family (3 models)
+    stage1_shap_global: true             # applied to all 8 models
+    stage2_shap_detailed: true           # applied to top model per family
+    stage2_lime: true                    # applied to top model per family
+    n_lime_samples: 100
+  model_selection:
+    # Multi-criteria composite scoring for best model selection.
+    # Final Score = W_perf * perf + W_eff * efficiency + W_xai * explainability
+    #
+    # Performance representative: weighted F1 (same metric HPO optimizes)
+    # Efficiency representative: normalized composite of inference latency,
+    #   peak inference memory, model parameter count, energy per sample
+    #   (all inverted — lower is better). Training time excluded because
+    #   IoMT deployment cares about per-flow cost, not one-time training.
+    # Explainability representative: average of faithfulness (correlation
+    #   between importance rank and prediction degradation on feature removal)
+    #   and stability (Spearman rank correlation across random seeds).
+    weights:
+      performance: 0.60    # weighted F1 score
+      efficiency: 0.25     # inference-time composite (inverted)
+      explainability: 0.15 # faithfulness + stability composite
+
+# ---------------------------------------------------------------------------
+# Models
+# ---------------------------------------------------------------------------
+models:
+  tree_based:
+    - name: "RandomForest"
+      module: "models.tree_based.random_forest"
+      class: "RandomForestModel"
+    - name: "XGBoost"
+      module: "models.tree_based.xgboost_model"
+      class: "XGBoostModel"
+    - name: "LightGBM"
+      module: "models.tree_based.lightgbm_model"
+      class: "LightGBMModel"
+    - name: "CatBoost"
+      module: "models.tree_based.catboost_model"
+      class: "CatBoostModel"
+
+  deep_learning:
+    - name: "CNN1D"
+      module: "models.deep_learning.cnn_1d"
+      class: "CNN1DModel"
+    - name: "BiLSTM"
+      module: "models.deep_learning.bilstm"
+      class: "BiLSTMModel"
+
+  transformers:
+    - name: "FTTransformer"
+      module: "models.transformers.ft_transformer"
+      class: "FTTransformerModel"
+    - name: "SAINT"
+      module: "models.transformers.saint"
+      class: "SAINTModel"
+
+# ---------------------------------------------------------------------------
+# Output
+# ---------------------------------------------------------------------------
+output:
+  results_dir: "results"
+  logs_dir: "logs"
+  plots_dir: "results/plots"
+  checkpoints_dir: "logs/checkpoints"
