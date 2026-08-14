@@ -1,0 +1,38 @@
+{
+  "model": "CNN1D",
+  "target_dataset": "CIC-IoT-DIAD-2024",
+  "source_dataset": "CICIoMT2024",
+  "task": 6,
+  "transfer_type": "zero_shot",
+  "n_test_samples": 27620469,
+  "n_features": 45,
+  "test_metrics": {
+    "accuracy": 0.230391634551897,
+    "precision_weighted": 0.8344602658668415,
+    "recall_weighted": 0.230391634551897,
+    "f1_weighted": 0.3509078263827838,
+    "precision_macro": 0.21173291564823304,
+    "recall_macro": 0.195760328338653,
+    "f1_macro": 0.1057071683995318,
+    "mcc": 0.041836475714828,
+    "per_class_f1": {
+      "Benign": 0.07942329902402498,
+      "DDoS": 0.029213198837167095,
+      "DoS": 0.41100761046256407,
+      "MQTT": 0.0,
+      "Recon": 0.1004650971986483,
+      "Spoofing": 0.014133804874786311
+    },
+    "f1_macro_shared": 0.12684860207943816,
+    "n_shared_classes": 5,
+    "shared_class_names": [
+      "Benign",
+      "DDoS",
+      "DoS",
+      "Recon",
+      "Spoofing"
+    ]
+  },
+  "inference_time_seconds": 112.34746956825256,
+  "confusion_matrix_path": "results/cross_dataset/CIC-IoT-DIAD-2024/task_6/CNN1D/CNN1D_CIC-IoT-DIAD-2024_task6_confusion_matrix.png"
+}

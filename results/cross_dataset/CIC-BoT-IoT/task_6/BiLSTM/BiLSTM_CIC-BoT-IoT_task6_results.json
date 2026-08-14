@@ -1,0 +1,37 @@
+{
+  "model": "BiLSTM",
+  "target_dataset": "CIC-BoT-IoT",
+  "source_dataset": "CICIoMT2024",
+  "task": 6,
+  "transfer_type": "zero_shot",
+  "n_test_samples": 13426894,
+  "n_features": 45,
+  "test_metrics": {
+    "accuracy": 0.20289279113993156,
+    "precision_weighted": 0.4058441133829967,
+    "recall_weighted": 0.20289279113993156,
+    "f1_weighted": 0.25191771323248296,
+    "precision_macro": 0.21540500542355565,
+    "recall_macro": 0.11004577865654909,
+    "f1_macro": 0.13264443197754228,
+    "mcc": 0.03967423148674272,
+    "per_class_f1": {
+      "Benign": 0.08872401107758443,
+      "DDoS": 0.2897300565583786,
+      "DoS": 0.34687754953637845,
+      "MQTT": 0.0,
+      "Recon": 0.07053497469291227,
+      "Spoofing": 0.0
+    },
+    "f1_macro_shared": 0.19896664796631344,
+    "n_shared_classes": 4,
+    "shared_class_names": [
+      "Benign",
+      "DDoS",
+      "DoS",
+      "Recon"
+    ]
+  },
+  "inference_time_seconds": 61.58544039726257,
+  "confusion_matrix_path": "results/cross_dataset/CIC-BoT-IoT/task_6/BiLSTM/BiLSTM_CIC-BoT-IoT_task6_confusion_matrix.png"
+}

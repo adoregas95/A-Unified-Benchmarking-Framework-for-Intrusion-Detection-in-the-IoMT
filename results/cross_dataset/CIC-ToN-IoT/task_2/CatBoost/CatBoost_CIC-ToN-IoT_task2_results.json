@@ -1,0 +1,25 @@
+{
+  "model": "CatBoost",
+  "target_dataset": "CIC-ToN-IoT",
+  "source_dataset": "CICIoMT2024",
+  "task": 2,
+  "transfer_type": "zero_shot",
+  "n_test_samples": 5351760,
+  "n_features": 8,
+  "test_metrics": {
+    "accuracy": 0.2895241939100408,
+    "precision_weighted": 0.26652179219305644,
+    "recall_weighted": 0.2895241939100408,
+    "f1_weighted": 0.27468327387697566,
+    "precision_macro": 0.26053869322474454,
+    "recall_macro": 0.2800011748481366,
+    "f1_macro": 0.2669628023861167,
+    "mcc": -0.45904773677641036,
+    "per_class_f1": {
+      "Attack": 0.39556427678266837,
+      "Benign": 0.13836132798956505
+    }
+  },
+  "inference_time_seconds": 2.2352824211120605,
+  "confusion_matrix_path": "results/cross_dataset/CIC-ToN-IoT/task_2/CatBoost/CatBoost_CIC-ToN-IoT_task2_confusion_matrix.png"
+}

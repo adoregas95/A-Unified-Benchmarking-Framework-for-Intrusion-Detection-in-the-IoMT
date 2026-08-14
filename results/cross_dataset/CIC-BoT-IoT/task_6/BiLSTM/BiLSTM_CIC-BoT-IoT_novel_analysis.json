@@ -1,0 +1,19 @@
+{
+  "target_dataset": "CIC-BoT-IoT",
+  "model": "BiLSTM",
+  "n_novel_samples": 1701,
+  "novel_families": [
+    "Theft"
+  ],
+  "absorption_map": {
+    "Theft": {
+      "0": 222,
+      "1": 5,
+      "2": 1,
+      "3": 28,
+      "4": 45,
+      "5": 1400
+    }
+  },
+  "mean_prediction_confidence": 0.9643799662590027
+}

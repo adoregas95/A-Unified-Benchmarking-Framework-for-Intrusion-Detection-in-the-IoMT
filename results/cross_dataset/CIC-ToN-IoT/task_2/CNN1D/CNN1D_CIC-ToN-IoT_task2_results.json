@@ -1,0 +1,25 @@
+{
+  "model": "CNN1D",
+  "target_dataset": "CIC-ToN-IoT",
+  "source_dataset": "CICIoMT2024",
+  "task": 2,
+  "transfer_type": "zero_shot",
+  "n_test_samples": 5351760,
+  "n_features": 8,
+  "test_metrics": {
+    "accuracy": 0.35417619624198393,
+    "precision_weighted": 0.2937087912713292,
+    "recall_weighted": 0.35417619624198393,
+    "f1_weighted": 0.3109553572645093,
+    "precision_macro": 0.28546329204199544,
+    "recall_macro": 0.3385772783547002,
+    "f1_macro": 0.29916793577179335,
+    "mcc": -0.37218865802925244,
+    "per_class_f1": {
+      "Attack": 0.49551342906085905,
+      "Benign": 0.10282244248272769
+    }
+  },
+  "inference_time_seconds": 27.633304357528687,
+  "confusion_matrix_path": "results/cross_dataset/CIC-ToN-IoT/task_2/CNN1D/CNN1D_CIC-ToN-IoT_task2_confusion_matrix.png"
+}

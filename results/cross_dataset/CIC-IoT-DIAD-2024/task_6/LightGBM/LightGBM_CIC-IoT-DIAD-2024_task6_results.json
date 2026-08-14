@@ -1,0 +1,38 @@
+{
+  "model": "LightGBM",
+  "target_dataset": "CIC-IoT-DIAD-2024",
+  "source_dataset": "CICIoMT2024",
+  "task": 6,
+  "transfer_type": "zero_shot",
+  "n_test_samples": 27620469,
+  "n_features": 45,
+  "test_metrics": {
+    "accuracy": 0.36593411936632936,
+    "precision_weighted": 0.8088383115505599,
+    "recall_weighted": 0.36593411936632936,
+    "f1_weighted": 0.4979821982511615,
+    "precision_macro": 0.19643450322329267,
+    "recall_macro": 0.1801430494847258,
+    "f1_macro": 0.1399082629779047,
+    "mcc": 0.04128676501104517,
+    "per_class_f1": {
+      "Benign": 0.1488604718428695,
+      "DDoS": 0.03141961787155719,
+      "DoS": 0.5859163688618179,
+      "MQTT": 0.0,
+      "Recon": 0.049060284381008755,
+      "Spoofing": 0.024192834910174984
+    },
+    "f1_macro_shared": 0.16788991557348565,
+    "n_shared_classes": 5,
+    "shared_class_names": [
+      "Benign",
+      "DDoS",
+      "DoS",
+      "Recon",
+      "Spoofing"
+    ]
+  },
+  "inference_time_seconds": 5800.821218490601,
+  "confusion_matrix_path": "results/cross_dataset/CIC-IoT-DIAD-2024/task_6/LightGBM/LightGBM_CIC-IoT-DIAD-2024_task6_confusion_matrix.png"
+}

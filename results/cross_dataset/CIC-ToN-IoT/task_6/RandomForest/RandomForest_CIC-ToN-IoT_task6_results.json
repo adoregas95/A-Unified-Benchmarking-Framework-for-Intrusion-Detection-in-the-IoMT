@@ -1,0 +1,37 @@
+{
+  "model": "RandomForest",
+  "target_dataset": "CIC-ToN-IoT",
+  "source_dataset": "CICIoMT2024",
+  "task": 6,
+  "transfer_type": "zero_shot",
+  "n_test_samples": 2551788,
+  "n_features": 45,
+  "test_metrics": {
+    "accuracy": 0.06226418495580354,
+    "precision_weighted": 0.9553987066949585,
+    "recall_weighted": 0.06226418495580354,
+    "f1_weighted": 0.11414565375566016,
+    "precision_macro": 0.16820801682016984,
+    "recall_macro": 0.07118998198258987,
+    "f1_macro": 0.029721859868171874,
+    "mcc": 0.0018841615042349497,
+    "per_class_f1": {
+      "Benign": 0.11489411515666274,
+      "DDoS": 0.00011805313515397502,
+      "DoS": 7.745527527377023e-05,
+      "MQTT": 0.0,
+      "Recon": 0.06324153564194078,
+      "Spoofing": 0.0
+    },
+    "f1_macro_shared": 0.04458278980225781,
+    "n_shared_classes": 4,
+    "shared_class_names": [
+      "Benign",
+      "DDoS",
+      "DoS",
+      "Recon"
+    ]
+  },
+  "inference_time_seconds": 18.485026597976685,
+  "confusion_matrix_path": "results/cross_dataset/CIC-ToN-IoT/task_6/RandomForest/RandomForest_CIC-ToN-IoT_task6_confusion_matrix.png"
+}

@@ -1,0 +1,19 @@
+{
+  "target_dataset": "CIC-BoT-IoT",
+  "model": "LightGBM",
+  "n_novel_samples": 1701,
+  "novel_families": [
+    "Theft"
+  ],
+  "absorption_map": {
+    "Theft": {
+      "0": 24,
+      "1": 120,
+      "2": 1030,
+      "3": 253,
+      "4": 60,
+      "5": 214
+    }
+  },
+  "mean_prediction_confidence": 0.6164677266153287
+}

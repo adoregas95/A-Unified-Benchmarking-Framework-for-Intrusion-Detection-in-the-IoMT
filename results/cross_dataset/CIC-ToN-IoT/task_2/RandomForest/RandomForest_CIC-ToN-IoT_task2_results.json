@@ -1,0 +1,25 @@
+{
+  "model": "RandomForest",
+  "target_dataset": "CIC-ToN-IoT",
+  "source_dataset": "CICIoMT2024",
+  "task": 2,
+  "transfer_type": "zero_shot",
+  "n_test_samples": 5351760,
+  "n_features": 8,
+  "test_metrics": {
+    "accuracy": 0.5268971329058104,
+    "precision_weighted": 0.37691387594799913,
+    "recall_weighted": 0.5268971329058104,
+    "f1_weighted": 0.36771711528019846,
+    "precision_macro": 0.36722536964958985,
+    "recall_macro": 0.4971883259098079,
+    "f1_macro": 0.3471519317440061,
+    "mcc": -0.03864292887404276,
+    "per_class_f1": {
+      "Attack": 0.6897104046457415,
+      "Benign": 0.004593458842270672
+    }
+  },
+  "inference_time_seconds": 6.943370580673218,
+  "confusion_matrix_path": "results/cross_dataset/CIC-ToN-IoT/task_2/RandomForest/RandomForest_CIC-ToN-IoT_task2_confusion_matrix.png"
+}

@@ -1,0 +1,112 @@
+{
+  "model": "CatBoost",
+  "dataset": "CICIoMT2024",
+  "task": 19,
+  "n_features": 45,
+  "n_train_samples": 39344734,
+  "n_test_samples": 1346418,
+  "hpo": {
+    "n_trials": 50,
+    "best_val_f1": 0.9331139772059945,
+    "best_params": {
+      "iterations": 500,
+      "depth": 8,
+      "learning_rate": 0.16556719767514835,
+      "l2_leaf_reg": 3.5707277286032513,
+      "bagging_temperature": 0.5505694458003195
+    }
+  },
+  "test_metrics": {
+    "accuracy": 0.9304346792749354,
+    "precision_weighted": 0.9501746147340782,
+    "recall_weighted": 0.9304346792749354,
+    "f1_weighted": 0.9358790277944959,
+    "precision_macro": 0.6580521022657719,
+    "recall_macro": 0.8305958416514009,
+    "f1_macro": 0.7103708761446783,
+    "mcc": 0.9036971668954027,
+    "per_class_f1": {
+      "ARP-Spoofing": 0.5950840879689522,
+      "Benign": 0.416289592760181,
+      "DDoS-ICMP-Flood": 0.5345622119815668,
+      "DDoS-SYN-Flood": 0.9938941404306584,
+      "DDoS-TCP-Flood": 0.9951748849115298,
+      "DDoS-UDP-Flood": 0.7111493758071459,
+      "DoS-ICMP-Flood": 0.2773722627737226,
+      "DoS-SYN-Flood": 0.989994383541697,
+      "DoS-TCP-Flood": 0.9868488932276165,
+      "DoS-UDP-Flood": 0.8644665171419417,
+      "MQTT-DDoS-Connect-Flood": 0.9564043224291209,
+      "MQTT-DDoS-Publish-Flood": 0.714070598678058,
+      "MQTT-DoS-Connect-Flood": 0.9383265179233327,
+      "MQTT-DoS-Publish-Flood": 0.7551487414187643,
+      "MQTT-Malformed-Data": 0.5841059602649007,
+      "Recon-OS-Scan": 0.5097885669537979,
+      "Recon-Ping-Sweep": 0.2597402597402597,
+      "Recon-Port-Scan": 0.80277347694379,
+      "Recon-Vulnerability-Scan": 0.6118518518518519
+    }
+  },
+  "efficiency": {
+    "inference_latency_ms_per_sample": 0.0007175349667965277,
+    "batch_throughput_samples_per_sec": 1393660.3040609325,
+    "end_to_end_latency_ms_per_sample": 0.0007175349667965277,
+    "training_time_seconds": 23946.37232619524,
+    "model_parameter_count": 255500,
+    "peak_memory_mb_inference": 20.545364379882812,
+    "gpu_power_watts_inference": -1.0,
+    "energy_joules_per_sample": -1.0
+  },
+  "checkpoint_path": "/mmfs1/home/dsu.local/oswald.adohinzin/dissertation/results/CICIoMT2024/task_19/CatBoost/model.pkl",
+  "confusion_matrix_path": "/mmfs1/home/dsu.local/oswald.adohinzin/dissertation/results/CICIoMT2024/task_19/CatBoost/confusion_matrix.png",
+  "bootstrap_ci": {
+    "f1_weighted": {
+      "point": 0.9358790277944959,
+      "ci_lower": 0.9354936593838218,
+      "ci_upper": 0.9362544823859031,
+      "ci_width": 0.0007608230020813567,
+      "std": 0.00019419479077320543
+    },
+    "f1_macro": {
+      "point": 0.7103708761446783,
+      "ci_lower": 0.7005599504396022,
+      "ci_upper": 0.7200730552520362,
+      "ci_width": 0.019513104812434068,
+      "std": 0.005120876193890131
+    },
+    "accuracy": {
+      "point": 0.9304346792749354,
+      "ci_lower": 0.930008975667289,
+      "ci_upper": 0.9308632237536931,
+      "ci_width": 0.000854248086404108,
+      "std": 0.00021887759037401205
+    },
+    "mcc": {
+      "point": 0.9036971668954027,
+      "ci_lower": 0.9031013907754422,
+      "ci_upper": 0.9042774667176652,
+      "ci_width": 0.0011760759422230205,
+      "std": 0.0002982482796730066
+    },
+    "precision_weighted": {
+      "point": 0.9501746147340782,
+      "ci_lower": 0.9498568749256725,
+      "ci_upper": 0.9505013293986266,
+      "ci_width": 0.0006444544729541368,
+      "std": 0.000164756533578697
+    },
+    "recall_weighted": {
+      "point": 0.9304346792749354,
+      "ci_lower": 0.930008975667289,
+      "ci_upper": 0.9308632237536931,
+      "ci_width": 0.000854248086404108,
+      "std": 0.00021887759037401205
+    },
+    "_meta": {
+      "n_bootstrap": 1000,
+      "confidence_level": 0.95,
+      "n_test_samples": 1346418,
+      "random_state": 42
+    }
+  }
+}

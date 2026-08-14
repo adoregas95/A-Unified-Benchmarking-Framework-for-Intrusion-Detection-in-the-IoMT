@@ -1,0 +1,37 @@
+{
+  "model": "XGBoost",
+  "target_dataset": "CIC-BoT-IoT",
+  "source_dataset": "CICIoMT2024",
+  "task": 6,
+  "transfer_type": "zero_shot",
+  "n_test_samples": 13426894,
+  "n_features": 45,
+  "test_metrics": {
+    "accuracy": 0.2920829642358091,
+    "precision_weighted": 0.3174481052431588,
+    "recall_weighted": 0.2920829642358091,
+    "f1_weighted": 0.2880443122397871,
+    "precision_macro": 0.16331888648706358,
+    "recall_macro": 0.14605314520190127,
+    "f1_macro": 0.14449336803581317,
+    "mcc": 0.0025866711006200986,
+    "per_class_f1": {
+      "Benign": 0.02004190984627773,
+      "DDoS": 0.14384886450016438,
+      "DoS": 0.49321635709501827,
+      "MQTT": 0.0,
+      "Recon": 0.2098530767734187,
+      "Spoofing": 0.0
+    },
+    "f1_macro_shared": 0.21674005205371977,
+    "n_shared_classes": 4,
+    "shared_class_names": [
+      "Benign",
+      "DDoS",
+      "DoS",
+      "Recon"
+    ]
+  },
+  "inference_time_seconds": 108.74393820762634,
+  "confusion_matrix_path": "results/cross_dataset/CIC-BoT-IoT/task_6/XGBoost/XGBoost_CIC-BoT-IoT_task6_confusion_matrix.png"
+}

@@ -1,0 +1,38 @@
+{
+  "model": "CatBoost",
+  "target_dataset": "CIC-IoT-DIAD-2024",
+  "source_dataset": "CICIoMT2024",
+  "task": 6,
+  "transfer_type": "zero_shot",
+  "n_test_samples": 27620469,
+  "n_features": 45,
+  "test_metrics": {
+    "accuracy": 0.3181756978855066,
+    "precision_weighted": 0.7507332649429561,
+    "recall_weighted": 0.3181756978855066,
+    "f1_weighted": 0.43278272091578623,
+    "precision_macro": 0.19655174678884138,
+    "recall_macro": 0.19506595058154316,
+    "f1_macro": 0.1406518706977524,
+    "mcc": -0.008942296726153754,
+    "per_class_f1": {
+      "Benign": 0.18521670549439412,
+      "DDoS": 0.08575547461893833,
+      "DoS": 0.4993256685644025,
+      "MQTT": 0.0,
+      "Recon": 0.047818228763232634,
+      "Spoofing": 0.025795146745546754
+    },
+    "f1_macro_shared": 0.16878224483730286,
+    "n_shared_classes": 5,
+    "shared_class_names": [
+      "Benign",
+      "DDoS",
+      "DoS",
+      "Recon",
+      "Spoofing"
+    ]
+  },
+  "inference_time_seconds": 263.73232889175415,
+  "confusion_matrix_path": "results/cross_dataset/CIC-IoT-DIAD-2024/task_6/CatBoost/CatBoost_CIC-IoT-DIAD-2024_task6_confusion_matrix.png"
+}

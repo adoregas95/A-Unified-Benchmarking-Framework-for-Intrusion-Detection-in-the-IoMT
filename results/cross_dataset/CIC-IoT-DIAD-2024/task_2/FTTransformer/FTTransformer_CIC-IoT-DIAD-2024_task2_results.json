@@ -1,0 +1,25 @@
+{
+  "model": "FTTransformer",
+  "target_dataset": "CIC-IoT-DIAD-2024",
+  "source_dataset": "CICIoMT2024",
+  "task": 2,
+  "transfer_type": "zero_shot",
+  "n_test_samples": 27810004,
+  "n_features": 8,
+  "test_metrics": {
+    "accuracy": 0.9658552008838258,
+    "precision_weighted": 0.9746209460355696,
+    "recall_weighted": 0.9658552008838258,
+    "f1_weighted": 0.9701049147752269,
+    "precision_macro": 0.5378882707734151,
+    "recall_macro": 0.5630445059333761,
+    "f1_macro": 0.5466408772607254,
+    "mcc": 0.09774757923508755,
+    "per_class_f1": {
+      "Attack": 0.9825934411911457,
+      "Benign": 0.11068831333030517
+    }
+  },
+  "inference_time_seconds": 136.74417328834534,
+  "confusion_matrix_path": "results/cross_dataset/CIC-IoT-DIAD-2024/task_2/FTTransformer/FTTransformer_CIC-IoT-DIAD-2024_task2_confusion_matrix.png"
+}

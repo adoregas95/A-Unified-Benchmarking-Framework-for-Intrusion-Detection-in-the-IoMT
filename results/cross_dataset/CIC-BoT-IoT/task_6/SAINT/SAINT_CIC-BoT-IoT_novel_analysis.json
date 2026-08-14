@@ -1,0 +1,18 @@
+{
+  "target_dataset": "CIC-BoT-IoT",
+  "model": "SAINT",
+  "n_novel_samples": 1701,
+  "novel_families": [
+    "Theft"
+  ],
+  "absorption_map": {
+    "Theft": {
+      "0": 70,
+      "1": 217,
+      "2": 1299,
+      "4": 47,
+      "5": 68
+    }
+  },
+  "mean_prediction_confidence": 0.679181694984436
+}

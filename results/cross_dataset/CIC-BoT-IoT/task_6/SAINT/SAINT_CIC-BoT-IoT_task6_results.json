@@ -1,0 +1,37 @@
+{
+  "model": "SAINT",
+  "target_dataset": "CIC-BoT-IoT",
+  "source_dataset": "CICIoMT2024",
+  "task": 6,
+  "transfer_type": "zero_shot",
+  "n_test_samples": 13426894,
+  "n_features": 45,
+  "test_metrics": {
+    "accuracy": 0.2710309621867872,
+    "precision_weighted": 0.25502905434283335,
+    "recall_weighted": 0.2710309621867872,
+    "f1_weighted": 0.21015683461711443,
+    "precision_macro": 0.13664855303161413,
+    "recall_macro": 0.13420504518351808,
+    "f1_macro": 0.10522900054477198,
+    "mcc": -0.00782355746335042,
+    "per_class_f1": {
+      "Benign": 0.04764283484233531,
+      "DDoS": 0.03666137811376639,
+      "DoS": 0.5123509188646262,
+      "MQTT": 0.0,
+      "Recon": 0.03471887144790402,
+      "Spoofing": 0.0
+    },
+    "f1_macro_shared": 0.15784350081715798,
+    "n_shared_classes": 4,
+    "shared_class_names": [
+      "Benign",
+      "DDoS",
+      "DoS",
+      "Recon"
+    ]
+  },
+  "inference_time_seconds": 177.32927799224854,
+  "confusion_matrix_path": "results/cross_dataset/CIC-BoT-IoT/task_6/SAINT/SAINT_CIC-BoT-IoT_task6_confusion_matrix.png"
+}

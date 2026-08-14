@@ -1,0 +1,37 @@
+{
+  "model": "CatBoost",
+  "target_dataset": "CIC-BoT-IoT",
+  "source_dataset": "CICIoMT2024",
+  "task": 6,
+  "transfer_type": "zero_shot",
+  "n_test_samples": 13426894,
+  "n_features": 45,
+  "test_metrics": {
+    "accuracy": 0.21808938090968769,
+    "precision_weighted": 0.28915553615973444,
+    "recall_weighted": 0.21808938090968769,
+    "f1_weighted": 0.2439221829982766,
+    "precision_macro": 0.13785659858984578,
+    "recall_macro": 0.10172839248377934,
+    "f1_macro": 0.11388417458620313,
+    "mcc": -0.028692883746222347,
+    "per_class_f1": {
+      "Benign": 0.002446074602764014,
+      "DDoS": 0.24988780252104476,
+      "DoS": 0.3816260923501081,
+      "MQTT": 0.0,
+      "Recon": 0.04934507804330188,
+      "Spoofing": 0.0
+    },
+    "f1_macro_shared": 0.1708262618793047,
+    "n_shared_classes": 4,
+    "shared_class_names": [
+      "Benign",
+      "DDoS",
+      "DoS",
+      "Recon"
+    ]
+  },
+  "inference_time_seconds": 128.67703366279602,
+  "confusion_matrix_path": "results/cross_dataset/CIC-BoT-IoT/task_6/CatBoost/CatBoost_CIC-BoT-IoT_task6_confusion_matrix.png"
+}

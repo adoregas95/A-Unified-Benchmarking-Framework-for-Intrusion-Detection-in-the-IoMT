@@ -1,0 +1,25 @@
+{
+  "model": "LightGBM",
+  "target_dataset": "CIC-ToN-IoT",
+  "source_dataset": "CICIoMT2024",
+  "task": 2,
+  "transfer_type": "zero_shot",
+  "n_test_samples": 5351760,
+  "n_features": 8,
+  "test_metrics": {
+    "accuracy": 0.4065464445341346,
+    "precision_weighted": 0.265116093490284,
+    "recall_weighted": 0.4065464445341346,
+    "f1_weighted": 0.3132983469761391,
+    "precision_macro": 0.25245549524578315,
+    "recall_macro": 0.3841965520517416,
+    "f1_macro": 0.2966035330054128,
+    "mcc": -0.3386237272914134,
+    "per_class_f1": {
+      "Attack": 0.5746924675936149,
+      "Benign": 0.01851459841721074
+    }
+  },
+  "inference_time_seconds": 62.02224135398865,
+  "confusion_matrix_path": "results/cross_dataset/CIC-ToN-IoT/task_2/LightGBM/LightGBM_CIC-ToN-IoT_task2_confusion_matrix.png"
+}

@@ -1,0 +1,25 @@
+{
+  "model": "FTTransformer",
+  "target_dataset": "CIC-BoT-IoT",
+  "source_dataset": "CICIoMT2024",
+  "task": 2,
+  "transfer_type": "zero_shot",
+  "n_test_samples": 13428595,
+  "n_features": 8,
+  "test_metrics": {
+    "accuracy": 0.5140446934321871,
+    "precision_weighted": 0.984301270929526,
+    "recall_weighted": 0.514044693432187,
+    "f1_weighted": 0.6737627978636802,
+    "precision_macro": 0.49741906300328775,
+    "recall_macro": 0.4023748168121433,
+    "f1_macro": 0.34303311941770914,
+    "mcc": -0.03174677603161313,
+    "per_class_f1": {
+      "Attack": 0.6782180539296276,
+      "Benign": 0.007848184905790614
+    }
+  },
+  "inference_time_seconds": 66.95686483383179,
+  "confusion_matrix_path": "results/cross_dataset/CIC-BoT-IoT/task_2/FTTransformer/FTTransformer_CIC-BoT-IoT_task2_confusion_matrix.png"
+}

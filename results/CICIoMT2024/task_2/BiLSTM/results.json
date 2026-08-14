@@ -1,0 +1,95 @@
+{
+  "model": "BiLSTM",
+  "dataset": "CICIoMT2024",
+  "task": 2,
+  "n_features": 8,
+  "n_train_samples": 6839697,
+  "n_test_samples": 1346418,
+  "hpo": {
+    "n_trials": 50,
+    "best_val_f1": 0.9996153944662199,
+    "best_params": {
+      "hidden_dim": 96,
+      "n_layers": 1,
+      "dropout": 0.2216968971838151,
+      "learning_rate": 0.0005958389350068958,
+      "batch_size": 1024
+    }
+  },
+  "test_metrics": {
+    "accuracy": 0.9993553265033592,
+    "precision_weighted": 0.9998794599237055,
+    "recall_weighted": 0.9993553265033592,
+    "f1_weighted": 0.9995987213088463,
+    "precision_macro": 0.5429030103118366,
+    "recall_macro": 0.807695460052158,
+    "f1_macro": 0.575181236188529,
+    "mcc": 0.22979174480840717,
+    "per_class_f1": {
+      "Attack": 0.9996775408702088,
+      "Benign": 0.1506849315068493
+    }
+  },
+  "efficiency": {
+    "inference_latency_ms_per_sample": 0.004153105882448322,
+    "batch_throughput_samples_per_sec": 240783.65163434844,
+    "end_to_end_latency_ms_per_sample": 0.004153105882448322,
+    "training_time_seconds": 1245.6310871988535,
+    "model_parameter_count": 106370,
+    "peak_memory_mb_inference": 10.516462326049805,
+    "gpu_power_watts_inference": 71.42581560283688,
+    "energy_joules_per_sample": 0.000296638974938811
+  },
+  "checkpoint_path": "/mmfs1/home/dsu.local/oswald.adohinzin/dissertation/results/CICIoMT2024/task_2/BiLSTM/model.pkl",
+  "confusion_matrix_path": "/mmfs1/home/dsu.local/oswald.adohinzin/dissertation/results/CICIoMT2024/task_2/BiLSTM/confusion_matrix.png",
+  "bootstrap_ci": {
+    "f1_weighted": {
+      "point": 0.9995925609486414,
+      "ci_lower": 0.999564557783304,
+      "ci_upper": 0.999622007199232,
+      "ci_width": 5.744941592800146e-05,
+      "std": 1.4061121602912201e-05
+    },
+    "f1_macro": {
+      "point": 0.5700116083112927,
+      "ci_lower": 0.5552223317611611,
+      "ci_upper": 0.5840268930467639,
+      "ci_width": 0.028804561285602825,
+      "std": 0.007464877426156673
+    },
+    "accuracy": {
+      "point": 0.999344928543736,
+      "ci_lower": 0.9993018327146547,
+      "ci_upper": 0.9993865389500141,
+      "ci_width": 8.470623535938859e-05,
+      "std": 2.222905377547576e-05
+    },
+    "mcc": {
+      "point": 0.2143758052687356,
+      "ci_lower": 0.17611251976479622,
+      "ci_upper": 0.24798721566885643,
+      "ci_width": 0.0718746959040602,
+      "std": 0.01870355455136625
+    },
+    "precision_weighted": {
+      "point": 0.9998751935391027,
+      "ci_lower": 0.9998526966944583,
+      "ci_upper": 0.9998977464813215,
+      "ci_width": 4.504978686314942e-05,
+      "std": 1.1312848646633247e-05
+    },
+    "recall_weighted": {
+      "point": 0.999344928543736,
+      "ci_lower": 0.9993018327146547,
+      "ci_upper": 0.9993865389500141,
+      "ci_width": 8.470623535938859e-05,
+      "std": 2.222905377547576e-05
+    },
+    "_meta": {
+      "n_bootstrap": 1000,
+      "confidence_level": 0.95,
+      "n_test_samples": 1346418,
+      "random_state": 42
+    }
+  }
+}

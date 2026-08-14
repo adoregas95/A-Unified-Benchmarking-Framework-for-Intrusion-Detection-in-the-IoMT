@@ -1,0 +1,37 @@
+{
+  "target_dataset": "CIC-IoT-DIAD-2024",
+  "model": "SAINT",
+  "n_novel_samples": 189535,
+  "novel_families": [
+    "BruteForce",
+    "Mirai",
+    "Web-Based"
+  ],
+  "absorption_map": {
+    "BruteForce": {
+      "0": 479,
+      "1": 286,
+      "2": 836,
+      "3": 538,
+      "4": 117,
+      "5": 1363
+    },
+    "Mirai": {
+      "0": 19801,
+      "1": 28126,
+      "2": 33736,
+      "3": 12777,
+      "4": 10118,
+      "5": 70030
+    },
+    "Web-Based": {
+      "0": 2112,
+      "1": 537,
+      "2": 2233,
+      "3": 1273,
+      "4": 1295,
+      "5": 3878
+    }
+  },
+  "mean_prediction_confidence": 0.9004746079444885
+}

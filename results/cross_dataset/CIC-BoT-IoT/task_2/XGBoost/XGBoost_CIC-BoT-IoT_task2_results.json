@@ -1,0 +1,25 @@
+{
+  "model": "XGBoost",
+  "target_dataset": "CIC-BoT-IoT",
+  "source_dataset": "CICIoMT2024",
+  "task": 2,
+  "transfer_type": "zero_shot",
+  "n_test_samples": 13428595,
+  "n_features": 8,
+  "test_metrics": {
+    "accuracy": 0.5820212017712948,
+    "precision_weighted": 0.9877365691933748,
+    "recall_weighted": 0.5820212017712948,
+    "f1_weighted": 0.7299010039997309,
+    "precision_macro": 0.501121727619213,
+    "recall_macro": 0.5413350645794732,
+    "f1_macro": 0.3751670584228273,
+    "mcc": 0.013618617195699624,
+    "per_class_f1": {
+      "Attack": 0.7346796212990766,
+      "Benign": 0.015654495546578016
+    }
+  },
+  "inference_time_seconds": 15.295512199401855,
+  "confusion_matrix_path": "results/cross_dataset/CIC-BoT-IoT/task_2/XGBoost/XGBoost_CIC-BoT-IoT_task2_confusion_matrix.png"
+}

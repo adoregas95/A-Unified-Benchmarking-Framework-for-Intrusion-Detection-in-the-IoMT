@@ -1,0 +1,37 @@
+{
+  "model": "CNN1D",
+  "target_dataset": "CIC-BoT-IoT",
+  "source_dataset": "CICIoMT2024",
+  "task": 6,
+  "transfer_type": "zero_shot",
+  "n_test_samples": 13426894,
+  "n_features": 45,
+  "test_metrics": {
+    "accuracy": 0.10798156297353655,
+    "precision_weighted": 0.29186587507671363,
+    "recall_weighted": 0.10798156297353655,
+    "f1_weighted": 0.14213762836256297,
+    "precision_macro": 0.1607218512565065,
+    "recall_macro": 0.08056093857986953,
+    "f1_macro": 0.08237949540755628,
+    "mcc": -0.04111323943437887,
+    "per_class_f1": {
+      "Benign": 0.10449485628722222,
+      "DDoS": 0.06292965342616083,
+      "DoS": 0.31628641189078205,
+      "MQTT": 0.0,
+      "Recon": 0.010566050841172589,
+      "Spoofing": 0.0
+    },
+    "f1_macro_shared": 0.12356924311133442,
+    "n_shared_classes": 4,
+    "shared_class_names": [
+      "Benign",
+      "DDoS",
+      "DoS",
+      "Recon"
+    ]
+  },
+  "inference_time_seconds": 54.30336952209473,
+  "confusion_matrix_path": "results/cross_dataset/CIC-BoT-IoT/task_6/CNN1D/CNN1D_CIC-BoT-IoT_task6_confusion_matrix.png"
+}

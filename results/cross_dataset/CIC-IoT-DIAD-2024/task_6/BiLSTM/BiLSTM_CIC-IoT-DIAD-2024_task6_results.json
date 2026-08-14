@@ -1,0 +1,38 @@
+{
+  "model": "BiLSTM",
+  "target_dataset": "CIC-IoT-DIAD-2024",
+  "source_dataset": "CICIoMT2024",
+  "task": 6,
+  "transfer_type": "zero_shot",
+  "n_test_samples": 27620469,
+  "n_features": 45,
+  "test_metrics": {
+    "accuracy": 0.46052585131700696,
+    "precision_weighted": 0.8350788089843746,
+    "recall_weighted": 0.460525851317007,
+    "f1_weighted": 0.5889594930188671,
+    "precision_macro": 0.22665068713755518,
+    "recall_macro": 0.24262734953063272,
+    "f1_macro": 0.16876381749060235,
+    "mcc": 0.12202260396960168,
+    "per_class_f1": {
+      "Benign": 0.14828528311926142,
+      "DDoS": 0.01767068928059494,
+      "DoS": 0.6951239595076326,
+      "MQTT": 0.0,
+      "Recon": 0.12310933448573898,
+      "Spoofing": 0.02839363855038603
+    },
+    "f1_macro_shared": 0.20251658098872277,
+    "n_shared_classes": 5,
+    "shared_class_names": [
+      "Benign",
+      "DDoS",
+      "DoS",
+      "Recon",
+      "Spoofing"
+    ]
+  },
+  "inference_time_seconds": 125.76385688781738,
+  "confusion_matrix_path": "results/cross_dataset/CIC-IoT-DIAD-2024/task_6/BiLSTM/BiLSTM_CIC-IoT-DIAD-2024_task6_confusion_matrix.png"
+}

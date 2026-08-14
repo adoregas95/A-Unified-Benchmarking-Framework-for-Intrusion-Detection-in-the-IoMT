@@ -1,0 +1,38 @@
+{
+  "model": "RandomForest",
+  "target_dataset": "CIC-IoT-DIAD-2024",
+  "source_dataset": "CICIoMT2024",
+  "task": 6,
+  "transfer_type": "zero_shot",
+  "n_test_samples": 27620469,
+  "n_features": 45,
+  "test_metrics": {
+    "accuracy": 0.44082491865000556,
+    "precision_weighted": 0.8215228032963523,
+    "recall_weighted": 0.44082491865000556,
+    "f1_weighted": 0.5547179542117421,
+    "precision_macro": 0.2019552536366118,
+    "recall_macro": 0.22686526132966686,
+    "f1_macro": 0.1666039553656463,
+    "mcc": 0.12619205177037307,
+    "per_class_f1": {
+      "Benign": 0.08997907115806258,
+      "DDoS": 0.19638845006180655,
+      "DoS": 0.629871951384138,
+      "MQTT": 0.0,
+      "Recon": 0.04108840722239421,
+      "Spoofing": 0.042295852367476496
+    },
+    "f1_macro_shared": 0.19992474643877556,
+    "n_shared_classes": 5,
+    "shared_class_names": [
+      "Benign",
+      "DDoS",
+      "DoS",
+      "Recon",
+      "Spoofing"
+    ]
+  },
+  "inference_time_seconds": 187.8087935447693,
+  "confusion_matrix_path": "results/cross_dataset/CIC-IoT-DIAD-2024/task_6/RandomForest/RandomForest_CIC-IoT-DIAD-2024_task6_confusion_matrix.png"
+}

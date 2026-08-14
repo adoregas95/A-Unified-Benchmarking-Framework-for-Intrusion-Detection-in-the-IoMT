@@ -1,0 +1,37 @@
+{
+  "target_dataset": "CIC-IoT-DIAD-2024",
+  "model": "LightGBM",
+  "n_novel_samples": 189535,
+  "novel_families": [
+    "BruteForce",
+    "Mirai",
+    "Web-Based"
+  ],
+  "absorption_map": {
+    "BruteForce": {
+      "0": 393,
+      "1": 1079,
+      "2": 311,
+      "3": 614,
+      "4": 152,
+      "5": 1070
+    },
+    "Mirai": {
+      "0": 12267,
+      "1": 30943,
+      "2": 22290,
+      "3": 35429,
+      "4": 12828,
+      "5": 60831
+    },
+    "Web-Based": {
+      "0": 1247,
+      "1": 1721,
+      "2": 1562,
+      "3": 1993,
+      "4": 729,
+      "5": 4076
+    }
+  },
+  "mean_prediction_confidence": 0.919003492421572
+}

@@ -1,0 +1,114 @@
+{
+  "model": "FTTransformer",
+  "dataset": "CICIoMT2024",
+  "task": 19,
+  "n_features": 45,
+  "n_train_samples": 39344734,
+  "n_test_samples": 1346418,
+  "hpo": {
+    "n_trials": 101,
+    "best_val_f1": 0.9399306721753341,
+    "best_params": {
+      "embed_dim": 112,
+      "num_heads": 8,
+      "depth": 6,
+      "attn_dropout": 0.22082123677661641,
+      "ff_dropout": 0.2995922797677858,
+      "learning_rate": 0.00011097238808343032,
+      "batch_size": 512
+    }
+  },
+  "test_metrics": {
+    "accuracy": 0.9279792753810481,
+    "precision_weighted": 0.947432868714903,
+    "recall_weighted": 0.9279792753810481,
+    "f1_weighted": 0.9338167839688463,
+    "precision_macro": 0.6314551099861699,
+    "recall_macro": 0.7867949005015413,
+    "f1_macro": 0.6739571601927806,
+    "mcc": 0.9004692730823997,
+    "per_class_f1": {
+      "ARP-Spoofing": 0.5936199722607489,
+      "Benign": 0.3863080684596577,
+      "DDoS-ICMP-Flood": 0.5233968804159446,
+      "DDoS-SYN-Flood": 0.9935648663123635,
+      "DDoS-TCP-Flood": 0.9942067372204006,
+      "DDoS-UDP-Flood": 0.37998691955526487,
+      "DoS-ICMP-Flood": 0.28205128205128205,
+      "DoS-SYN-Flood": 0.9894514184593265,
+      "DoS-TCP-Flood": 0.9842869707847006,
+      "DoS-UDP-Flood": 0.6324314375115038,
+      "MQTT-DDoS-Connect-Flood": 0.9532822074853997,
+      "MQTT-DDoS-Publish-Flood": 0.6944340199772775,
+      "MQTT-DoS-Connect-Flood": 0.9449965418077245,
+      "MQTT-DoS-Publish-Flood": 0.7470997679814385,
+      "MQTT-Malformed-Data": 0.5175074183976262,
+      "Recon-OS-Scan": 0.5163422968355371,
+      "Recon-Ping-Sweep": 0.23684210526315788,
+      "Recon-Port-Scan": 0.8265688427280369,
+      "Recon-Vulnerability-Scan": 0.6088082901554405
+    }
+  },
+  "efficiency": {
+    "inference_latency_ms_per_sample": 0.020669662986102986,
+    "batch_throughput_samples_per_sec": 48380.08247509108,
+    "end_to_end_latency_ms_per_sample": 0.020669662986102986,
+    "training_time_seconds": 68420.58378768899,
+    "model_parameter_count": 1228211,
+    "peak_memory_mb_inference": 1213.4228763580322,
+    "gpu_power_watts_inference": 275.0855770609319,
+    "energy_joules_per_sample": 0.005685926170187125
+  },
+  "bootstrap_ci": {
+    "f1_weighted": {
+      "point": 0.9338167839688463,
+      "ci_lower": 0.9334291462136772,
+      "ci_upper": 0.9341907509909836,
+      "ci_width": 0.0007616047773063572,
+      "std": 0.00019273762730206333
+    },
+    "f1_macro": {
+      "point": 0.6739571601927806,
+      "ci_lower": 0.6637706615580465,
+      "ci_upper": 0.6838678158535619,
+      "ci_width": 0.020097154295515396,
+      "std": 0.005077699331540763
+    },
+    "accuracy": {
+      "point": 0.9279792753810481,
+      "ci_lower": 0.927531290431352,
+      "ci_upper": 0.9283954165793981,
+      "ci_width": 0.000864126148046096,
+      "std": 0.00021671935439126125
+    },
+    "mcc": {
+      "point": 0.9004692730823997,
+      "ci_lower": 0.899861125841465,
+      "ci_upper": 0.9010528959584527,
+      "ci_width": 0.0011917701169876782,
+      "std": 0.0002958213171913303
+    },
+    "precision_weighted": {
+      "point": 0.947432868714903,
+      "ci_lower": 0.9470914246249438,
+      "ci_upper": 0.9477675871835888,
+      "ci_width": 0.0006761625586449993,
+      "std": 0.00017259105397102604
+    },
+    "recall_weighted": {
+      "point": 0.9279792753810481,
+      "ci_lower": 0.927531290431352,
+      "ci_upper": 0.9283954165793981,
+      "ci_width": 0.000864126148046096,
+      "std": 0.00021671935439126125
+    },
+    "_meta": {
+      "n_bootstrap": 1000,
+      "confidence_level": 0.95,
+      "n_test_samples": 1346418,
+      "random_state": 42
+    }
+  },
+  "checkpoint_path": "/mmfs1/home/dsu.local/oswald.adohinzin/dissertation/results/CICIoMT2024/task_19/FTTransformer/model.pkl",
+  "confusion_matrix_path": "/mmfs1/home/dsu.local/oswald.adohinzin/dissertation/results/CICIoMT2024/task_19/FTTransformer/confusion_matrix.png"
+}

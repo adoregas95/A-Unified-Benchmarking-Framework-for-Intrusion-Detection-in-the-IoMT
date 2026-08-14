@@ -1,0 +1,19 @@
+{
+  "target_dataset": "CIC-BoT-IoT",
+  "model": "XGBoost",
+  "n_novel_samples": 1701,
+  "novel_families": [
+    "Theft"
+  ],
+  "absorption_map": {
+    "Theft": {
+      "0": 1,
+      "1": 805,
+      "2": 57,
+      "3": 131,
+      "4": 398,
+      "5": 309
+    }
+  },
+  "mean_prediction_confidence": 0.6024529933929443
+}

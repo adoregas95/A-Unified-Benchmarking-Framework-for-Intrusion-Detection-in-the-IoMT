@@ -1,0 +1,1125 @@
+{
+  "description": "MCDM Model Selection \u2014 Per-Task Rankings",
+  "weights": {
+    "performance": 0.6,
+    "efficiency": 0.25,
+    "explainability": 0.15
+  },
+  "performance_metrics": [
+    "f1_weighted",
+    "recall_weighted",
+    "mcc"
+  ],
+  "efficiency_metrics": [
+    "inference_latency_ms_per_sample",
+    "peak_memory_mb_inference",
+    "model_parameter_count",
+    "energy_joules_per_sample"
+  ],
+  "explainability_metrics": [
+    "faithfulness",
+    "stability"
+  ],
+  "tasks": {
+    "task_2": {
+      "task_label": "Binary (2-class)",
+      "rankings": [
+        {
+          "model": "RandomForest",
+          "rank": 1,
+          "final_score": 0.8202393523696926,
+          "perf_score": 1.0,
+          "eff_score": 0.6135231989524548,
+          "xai_score": 0.44572368421052627
+        },
+        {
+          "model": "CatBoost",
+          "rank": 2,
+          "final_score": 0.5876137127517416,
+          "perf_score": 0.4905337200673117,
+          "eff_score": 0.8731739228454183,
+          "xai_score": 0.5
+        },
+        {
+          "model": "LightGBM",
+          "rank": 3,
+          "final_score": 0.5437215371159785,
+          "perf_score": 0.5270058271361471,
+          "eff_score": 0.6317826896529501,
+          "xai_score": 0.46381578947368424
+        },
+        {
+          "model": "XGBoost",
+          "rank": 4,
+          "final_score": 0.5293189002740561,
+          "perf_score": 0.35885999470717284,
+          "eff_score": 0.9668668769569043,
+          "xai_score": 0.48190789473684215
+        },
+        {
+          "model": "BiLSTM",
+          "rank": 5,
+          "final_score": 0.3498527705363993,
+          "perf_score": 0.13123669216790027,
+          "eff_score": 0.8242203488778591,
+          "xai_score": 0.43370445344129555
+        },
+        {
+          "model": "FTTransformer",
+          "rank": 6,
+          "final_score": 0.34023550720145324,
+          "perf_score": 0.2585593731105445,
+          "eff_score": 0.47296532281419046,
+          "xai_score": 0.44572368421052627
+        },
+        {
+          "model": "CNN1D",
+          "rank": 7,
+          "final_score": 0.24375512665363516,
+          "perf_score": 0.20157465713689396,
+          "eff_score": 0.4912413294859952,
+          "xai_score": 0.0
+        },
+        {
+          "model": "SAINT",
+          "rank": 8,
+          "final_score": 0.15098032616691887,
+          "perf_score": 0.09372873965115554,
+          "eff_score": 0.12596119590166324,
+          "xai_score": 0.4216852226720648
+        }
+      ],
+      "best_per_family": {
+        "deep_learning": "BiLSTM",
+        "transformers": "FTTransformer",
+        "tree_based": "RandomForest"
+      },
+      "sensitivity": {
+        "n_top_model_stable": 7,
+        "n_full_ranking_stable": 3,
+        "n_total": 7,
+        "scenarios": [
+          {
+            "scenario": "baseline",
+            "w_perf": 0.6,
+            "w_eff": 0.25,
+            "w_xai": 0.15,
+            "top_model": "RandomForest",
+            "top_score": 0.8202393523696926,
+            "full_ranking": [
+              "RandomForest",
+              "CatBoost",
+              "LightGBM",
+              "XGBoost",
+              "BiLSTM",
+              "FTTransformer",
+              "CNN1D",
+              "SAINT"
+            ],
+            "ranking_matches_baseline": true
+          },
+          {
+            "scenario": "perf+10%",
+            "w_perf": 0.7,
+            "w_eff": 0.1875,
+            "w_xai": 0.11249999999999999,
+            "top_model": "RandomForest",
+            "top_score": 0.8651795142772694,
+            "full_ranking": [
+              "RandomForest",
+              "CatBoost",
+              "LightGBM",
+              "XGBoost",
+              "FTTransformer",
+              "BiLSTM",
+              "CNN1D",
+              "SAINT"
+            ],
+            "ranking_matches_baseline": false
+          },
+          {
+            "scenario": "perf-10%",
+            "w_perf": 0.5,
+            "w_eff": 0.3125,
+            "w_xai": 0.1875,
+            "top_model": "RandomForest",
+            "top_score": 0.7752991904621158,
+            "full_ranking": [
+              "RandomForest",
+              "CatBoost",
+              "XGBoost",
+              "LightGBM",
+              "BiLSTM",
+              "FTTransformer",
+              "CNN1D",
+              "SAINT"
+            ],
+            "ranking_matches_baseline": false
+          },
+          {
+            "scenario": "effi+10%",
+            "w_perf": 0.52,
+            "w_eff": 0.35,
+            "w_xai": 0.13,
+            "top_model": "RandomForest",
+            "top_score": 0.7926771985807276,
+            "full_ranking": [
+              "RandomForest",
+              "CatBoost",
+              "XGBoost",
+              "LightGBM",
+              "BiLSTM",
+              "FTTransformer",
+              "CNN1D",
+              "SAINT"
+            ],
+            "ranking_matches_baseline": false
+          },
+          {
+            "scenario": "effi-10%",
+            "w_perf": 0.6799999999999999,
+            "w_eff": 0.15,
+            "w_xai": 0.16999999999999998,
+            "top_model": "RandomForest",
+            "top_score": 0.8478015061586576,
+            "full_ranking": [
+              "RandomForest",
+              "CatBoost",
+              "LightGBM",
+              "XGBoost",
+              "FTTransformer",
+              "BiLSTM",
+              "CNN1D",
+              "SAINT"
+            ],
+            "ranking_matches_baseline": false
+          },
+          {
+            "scenario": "expl+10%",
+            "w_perf": 0.5294117647058824,
+            "w_eff": 0.22058823529411764,
+            "w_xai": 0.25,
+            "top_model": "RandomForest",
+            "top_score": 0.7761786855274377,
+            "full_ranking": [
+              "RandomForest",
+              "CatBoost",
+              "LightGBM",
+              "XGBoost",
+              "BiLSTM",
+              "FTTransformer",
+              "CNN1D",
+              "SAINT"
+            ],
+            "ranking_matches_baseline": true
+          },
+          {
+            "scenario": "expl-10%",
+            "w_perf": 0.6705882352941176,
+            "w_eff": 0.27941176470588236,
+            "w_xai": 0.04999999999999999,
+            "top_model": "RandomForest",
+            "top_score": 0.8643000192119474,
+            "full_ranking": [
+              "RandomForest",
+              "CatBoost",
+              "LightGBM",
+              "XGBoost",
+              "BiLSTM",
+              "FTTransformer",
+              "CNN1D",
+              "SAINT"
+            ],
+            "ranking_matches_baseline": true
+          }
+        ]
+      }
+    },
+    "task_6": {
+      "task_label": "6-class",
+      "rankings": [
+        {
+          "model": "XGBoost",
+          "rank": 1,
+          "final_score": 0.8661824949117981,
+          "perf_score": 0.7905161599035596,
+          "eff_score": 0.9674911958786493,
+          "xai_score": 1.0
+        },
+        {
+          "model": "CatBoost",
+          "rank": 2,
+          "final_score": 0.8494274310313448,
+          "perf_score": 0.7914521136970324,
+          "eff_score": 0.9752121432482325,
+          "xai_score": 0.8716875133404483
+        },
+        {
+          "model": "LightGBM",
+          "rank": 3,
+          "final_score": 0.8168193653717637,
+          "perf_score": 0.8413221651309547,
+          "eff_score": 0.6516261435078757,
+          "xai_score": 0.9941302027748133
+        },
+        {
+          "model": "RandomForest",
+          "rank": 4,
+          "final_score": 0.7981214156806624,
+          "perf_score": 1.0,
+          "eff_score": 0.504812236895542,
+          "xai_score": 0.4794557097118462
+        },
+        {
+          "model": "BiLSTM",
+          "rank": 5,
+          "final_score": 0.6369754736691713,
+          "perf_score": 0.6249498665986545,
+          "eff_score": 0.7734622148399142,
+          "xai_score": 0.4576
+        },
+        {
+          "model": "FTTransformer",
+          "rank": 6,
+          "final_score": 0.6013345627882462,
+          "perf_score": 0.568488228510056,
+          "eff_score": 0.48466981116001373,
+          "xai_score": 0.9271611526147279
+        },
+        {
+          "model": "SAINT",
+          "rank": 7,
+          "final_score": 0.5910581666192846,
+          "perf_score": 0.687634139327777,
+          "eff_score": 0.2990626317703028,
+          "xai_score": 0.6914135005336179
+        },
+        {
+          "model": "CNN1D",
+          "rank": 8,
+          "final_score": 0.20739845987545752,
+          "perf_score": 0.0,
+          "eff_score": 0.7750047253075931,
+          "xai_score": 0.09098185699039492
+        }
+      ],
+      "best_per_family": {
+        "deep_learning": "BiLSTM",
+        "transformers": "FTTransformer",
+        "tree_based": "XGBoost"
+      },
+      "sensitivity": {
+        "n_top_model_stable": 6,
+        "n_full_ranking_stable": 3,
+        "n_total": 7,
+        "scenarios": [
+          {
+            "scenario": "baseline",
+            "w_perf": 0.6,
+            "w_eff": 0.25,
+            "w_xai": 0.15,
+            "top_model": "XGBoost",
+            "top_score": 0.8661824949117981,
+            "full_ranking": [
+              "XGBoost",
+              "CatBoost",
+              "LightGBM",
+              "RandomForest",
+              "BiLSTM",
+              "FTTransformer",
+              "SAINT",
+              "CNN1D"
+            ],
+            "ranking_matches_baseline": true
+          },
+          {
+            "scenario": "perf+10%",
+            "w_perf": 0.7,
+            "w_eff": 0.1875,
+            "w_xai": 0.11249999999999999,
+            "top_model": "RandomForest",
+            "top_score": 0.8485910617604968,
+            "full_ranking": [
+              "RandomForest",
+              "XGBoost",
+              "CatBoost",
+              "LightGBM",
+              "BiLSTM",
+              "SAINT",
+              "FTTransformer",
+              "CNN1D"
+            ],
+            "ranking_matches_baseline": false
+          },
+          {
+            "scenario": "perf-10%",
+            "w_perf": 0.5,
+            "w_eff": 0.3125,
+            "w_xai": 0.1875,
+            "top_model": "XGBoost",
+            "top_score": 0.8850990786638577,
+            "full_ranking": [
+              "XGBoost",
+              "CatBoost",
+              "LightGBM",
+              "RandomForest",
+              "BiLSTM",
+              "FTTransformer",
+              "SAINT",
+              "CNN1D"
+            ],
+            "ranking_matches_baseline": true
+          },
+          {
+            "scenario": "effi+10%",
+            "w_perf": 0.52,
+            "w_eff": 0.35,
+            "w_xai": 0.13,
+            "top_model": "XGBoost",
+            "top_score": 0.8796903217073783,
+            "full_ranking": [
+              "XGBoost",
+              "CatBoost",
+              "LightGBM",
+              "RandomForest",
+              "BiLSTM",
+              "FTTransformer",
+              "SAINT",
+              "CNN1D"
+            ],
+            "ranking_matches_baseline": true
+          },
+          {
+            "scenario": "effi-10%",
+            "w_perf": 0.6799999999999999,
+            "w_eff": 0.15,
+            "w_xai": 0.16999999999999998,
+            "top_model": "XGBoost",
+            "top_score": 0.8526746681162178,
+            "full_ranking": [
+              "XGBoost",
+              "LightGBM",
+              "RandomForest",
+              "CatBoost",
+              "SAINT",
+              "BiLSTM",
+              "FTTransformer",
+              "CNN1D"
+            ],
+            "ranking_matches_baseline": false
+          },
+          {
+            "scenario": "expl+10%",
+            "w_perf": 0.5294117647058824,
+            "w_eff": 0.22058823529411764,
+            "w_xai": 0.25,
+            "top_model": "XGBoost",
+            "top_score": 0.8819257308045277,
+            "full_ranking": [
+              "XGBoost",
+              "CatBoost",
+              "LightGBM",
+              "RandomForest",
+              "FTTransformer",
+              "BiLSTM",
+              "SAINT",
+              "CNN1D"
+            ],
+            "ranking_matches_baseline": false
+          },
+          {
+            "scenario": "expl-10%",
+            "w_perf": 0.6705882352941176,
+            "w_eff": 0.27941176470588236,
+            "w_xai": 0.04999999999999999,
+            "top_model": "XGBoost",
+            "top_score": 0.8504392590190684,
+            "full_ranking": [
+              "XGBoost",
+              "CatBoost",
+              "RandomForest",
+              "LightGBM",
+              "BiLSTM",
+              "SAINT",
+              "FTTransformer",
+              "CNN1D"
+            ],
+            "ranking_matches_baseline": false
+          }
+        ]
+      }
+    },
+    "task_19": {
+      "task_label": "19-class",
+      "rankings": [
+        {
+          "model": "XGBoost",
+          "rank": 1,
+          "final_score": 0.8614924599266088,
+          "perf_score": 0.9234125769667291,
+          "eff_score": 0.6493858347615666,
+          "xai_score": 0.9673230337078651
+        },
+        {
+          "model": "LightGBM",
+          "rank": 2,
+          "final_score": 0.8216094735493981,
+          "perf_score": 0.7567768925951075,
+          "eff_score": 0.8734317789356267,
+          "xai_score": 0.9945692883895131
+        },
+        {
+          "model": "SAINT",
+          "rank": 3,
+          "final_score": 0.79459776901992,
+          "perf_score": 1.0,
+          "eff_score": 0.21325703113585984,
+          "xai_score": 0.941890074906367
+        },
+        {
+          "model": "RandomForest",
+          "rank": 4,
+          "final_score": 0.7224529185328149,
+          "perf_score": 0.7535984238327589,
+          "eff_score": 0.48117545693263847,
+          "xai_score": 1.0
+        },
+        {
+          "model": "CatBoost",
+          "rank": 5,
+          "final_score": 0.7223545618059348,
+          "perf_score": 0.5515609227981679,
+          "eff_score": 0.9986267516092598,
+          "xai_score": 0.9450754681647939
+        },
+        {
+          "model": "BiLSTM",
+          "rank": 6,
+          "final_score": 0.6293373572034708,
+          "perf_score": 0.5861728954554001,
+          "eff_score": 0.8396344797209228,
+          "xai_score": 0.4515
+        },
+        {
+          "model": "FTTransformer",
+          "rank": 7,
+          "final_score": 0.43517754789557245,
+          "perf_score": 0.3133195996841764,
+          "eff_score": 0.42531562425037905,
+          "xai_score": 0.9390458801498126
+        },
+        {
+          "model": "CNN1D",
+          "rank": 8,
+          "final_score": 0.22923878984973722,
+          "perf_score": 0.0,
+          "eff_score": 0.8289776313090613,
+          "xai_score": 0.14662921348314592
+        }
+      ],
+      "best_per_family": {
+        "deep_learning": "BiLSTM",
+        "transformers": "SAINT",
+        "tree_based": "XGBoost"
+      },
+      "sensitivity": {
+        "n_top_model_stable": 7,
+        "n_full_ranking_stable": 2,
+        "n_total": 7,
+        "scenarios": [
+          {
+            "scenario": "baseline",
+            "w_perf": 0.6,
+            "w_eff": 0.25,
+            "w_xai": 0.15,
+            "top_model": "XGBoost",
+            "top_score": 0.8614924599266088,
+            "full_ranking": [
+              "XGBoost",
+              "LightGBM",
+              "SAINT",
+              "RandomForest",
+              "CatBoost",
+              "BiLSTM",
+              "FTTransformer",
+              "CNN1D"
+            ],
+            "ranking_matches_baseline": true
+          },
+          {
+            "scenario": "perf+10%",
+            "w_perf": 0.7,
+            "w_eff": 0.1875,
+            "w_xai": 0.11249999999999999,
+            "top_model": "XGBoost",
+            "top_score": 0.8769724891866388,
+            "full_ranking": [
+              "XGBoost",
+              "SAINT",
+              "LightGBM",
+              "RandomForest",
+              "CatBoost",
+              "BiLSTM",
+              "FTTransformer",
+              "CNN1D"
+            ],
+            "ranking_matches_baseline": false
+          },
+          {
+            "scenario": "perf-10%",
+            "w_perf": 0.5,
+            "w_eff": 0.3125,
+            "w_xai": 0.1875,
+            "top_model": "XGBoost",
+            "top_score": 0.8460124306665788,
+            "full_ranking": [
+              "XGBoost",
+              "LightGBM",
+              "CatBoost",
+              "SAINT",
+              "RandomForest",
+              "BiLSTM",
+              "FTTransformer",
+              "CNN1D"
+            ],
+            "ranking_matches_baseline": false
+          },
+          {
+            "scenario": "effi+10%",
+            "w_perf": 0.52,
+            "w_eff": 0.35,
+            "w_xai": 0.13,
+            "top_model": "XGBoost",
+            "top_score": 0.8332115765712699,
+            "full_ranking": [
+              "XGBoost",
+              "LightGBM",
+              "CatBoost",
+              "SAINT",
+              "RandomForest",
+              "BiLSTM",
+              "FTTransformer",
+              "CNN1D"
+            ],
+            "ranking_matches_baseline": false
+          },
+          {
+            "scenario": "effi-10%",
+            "w_perf": 0.6799999999999999,
+            "w_eff": 0.15,
+            "w_xai": 0.16999999999999998,
+            "top_model": "XGBoost",
+            "top_score": 0.8897733432819478,
+            "full_ranking": [
+              "XGBoost",
+              "SAINT",
+              "LightGBM",
+              "RandomForest",
+              "CatBoost",
+              "BiLSTM",
+              "FTTransformer",
+              "CNN1D"
+            ],
+            "ranking_matches_baseline": false
+          },
+          {
+            "scenario": "expl+10%",
+            "w_perf": 0.5294117647058824,
+            "w_eff": 0.22058823529411764,
+            "w_xai": 0.25,
+            "top_model": "XGBoost",
+            "top_score": 0.8739431156655801,
+            "full_ranking": [
+              "XGBoost",
+              "LightGBM",
+              "SAINT",
+              "RandomForest",
+              "CatBoost",
+              "BiLSTM",
+              "FTTransformer",
+              "CNN1D"
+            ],
+            "ranking_matches_baseline": true
+          },
+          {
+            "scenario": "expl-10%",
+            "w_perf": 0.6705882352941176,
+            "w_eff": 0.27941176470588236,
+            "w_xai": 0.04999999999999999,
+            "top_model": "XGBoost",
+            "top_score": 0.8490418041876375,
+            "full_ranking": [
+              "XGBoost",
+              "LightGBM",
+              "SAINT",
+              "CatBoost",
+              "RandomForest",
+              "BiLSTM",
+              "FTTransformer",
+              "CNN1D"
+            ],
+            "ranking_matches_baseline": false
+          }
+        ]
+      }
+    }
+  },
+  "raw_data": [
+    {
+      "model": "RandomForest",
+      "task": 2,
+      "f1_weighted": 0.9998890720193376,
+      "recall_weighted": 0.9999086464975958,
+      "mcc": 0.3288395306692424,
+      "accuracy": 0.9999086464975958,
+      "f1_macro": 0.6485485887115279,
+      "inference_latency_ms_per_sample": 0.0008470611015591627,
+      "peak_memory_mb_inference": 400.837140083313,
+      "model_parameter_count": 227100,
+      "energy_joules_per_sample": -1.0,
+      "training_time_s": 174.5311369355768,
+      "faithfulness": -0.9755,
+      "stability": 0.9571,
+      "kappa_l5": 0.5900000000000001,
+      "kappa_l10": 0.8000000000000002,
+      "n_flagged": 3
+    },
+    {
+      "model": "XGBoost",
+      "task": 2,
+      "f1_weighted": 0.9996957380674245,
+      "recall_weighted": 0.9995439751993809,
+      "mcc": 0.23995033485507244,
+      "accuracy": 0.9995439751993809,
+      "f1_macro": 0.5894581546364497,
+      "inference_latency_ms_per_sample": 0.0006891139288057964,
+      "peak_memory_mb_inference": 16.697765350341797,
+      "model_parameter_count": 60430,
+      "energy_joules_per_sample": -1.0,
+      "training_time_s": 18.546204581856728,
+      "faithfulness": -0.5951,
+      "stability": 0.9857,
+      "kappa_l5": 0.58,
+      "kappa_l10": 0.8000000000000002,
+      "n_flagged": 5
+    },
+    {
+      "model": "LightGBM",
+      "task": 2,
+      "f1_weighted": 0.9998060032951248,
+      "recall_weighted": 0.9997601042172639,
+      "mcc": 0.21904821479634648,
+      "accuracy": 0.9997601042172639,
+      "f1_macro": 0.6011745849341688,
+      "inference_latency_ms_per_sample": 0.006021931240246975,
+      "peak_memory_mb_inference": 51.364274978637695,
+      "model_parameter_count": 2000,
+      "energy_joules_per_sample": -1.0,
+      "training_time_s": 48.84424686804414,
+      "faithfulness": -0.9755,
+      "stability": 0.9714,
+      "kappa_l5": 0.5700000000000001,
+      "kappa_l10": 0.8000000000000002,
+      "n_flagged": 7
+    },
+    {
+      "model": "CatBoost",
+      "task": 2,
+      "f1_weighted": 0.9997823958816643,
+      "recall_weighted": 0.999714056110361,
+      "mcc": 0.22331335283980702,
+      "accuracy": 0.999714056110361,
+      "f1_macro": 0.598049586904437,
+      "inference_latency_ms_per_sample": 0.00030825796480488067,
+      "peak_memory_mb_inference": 20.545074462890625,
+      "model_parameter_count": 1228200,
+      "energy_joules_per_sample": -1.0,
+      "training_time_s": 120.96424967609346,
+      "faithfulness": -0.4111,
+      "stability": 1.0,
+      "kappa_l5": 0.7500000000000001,
+      "kappa_l10": 0.8000000000000002,
+      "n_flagged": 0
+    },
+    {
+      "model": "CNN1D",
+      "task": 2,
+      "f1_weighted": 0.999624434943794,
+      "recall_weighted": 0.9994050881672705,
+      "mcc": 0.23607916758026595,
+      "accuracy": 0.9994050881672705,
+      "f1_macro": 0.5795993830816633,
+      "inference_latency_ms_per_sample": 0.005632254973221114,
+      "peak_memory_mb_inference": 10.516655921936035,
+      "model_parameter_count": 1545090,
+      "energy_joules_per_sample": 0.0005996755001763668,
+      "training_time_s": 1566.493310969323,
+      "faithfulness": -0.5338,
+      "stability": 0.6048,
+      "kappa_l5": 0.6799999999999999,
+      "kappa_l10": 0.8000000000000002,
+      "n_flagged": 1
+    },
+    {
+      "model": "BiLSTM",
+      "task": 2,
+      "f1_weighted": 0.9995987213088463,
+      "recall_weighted": 0.9993553265033592,
+      "mcc": 0.22979174480840717,
+      "accuracy": 0.9993553265033592,
+      "f1_macro": 0.575181236188529,
+      "inference_latency_ms_per_sample": 0.004153105882448322,
+      "peak_memory_mb_inference": 10.516462326049805,
+      "model_parameter_count": 106370,
+      "energy_joules_per_sample": 0.000296638974938811,
+      "training_time_s": 1245.6310871988535,
+      "faithfulness": -0.7915,
+      "stability": 0.9476,
+      "kappa_l5": 0.7300000000000001,
+      "kappa_l10": 0.8000000000000002,
+      "n_flagged": 2
+    },
+    {
+      "model": "FTTransformer",
+      "task": 2,
+      "f1_weighted": 0.9996862454675121,
+      "recall_weighted": 0.9995291209713477,
+      "mcc": 0.210598779113296,
+      "accuracy": 0.9995291209713477,
+      "f1_macro": 0.5783396941678055,
+      "inference_latency_ms_per_sample": 0.005389619724429611,
+      "peak_memory_mb_inference": 215.7204818725586,
+      "model_parameter_count": 189410,
+      "energy_joules_per_sample": 0.0005914101188187543,
+      "training_time_s": 8164.974124284461,
+      "faithfulness": -0.7915,
+      "stability": 0.9571,
+      "kappa_l5": 0.68,
+      "kappa_l10": 0.8000000000000002,
+      "n_flagged": 2
+    },
+    {
+      "model": "SAINT",
+      "task": 2,
+      "f1_weighted": 0.9995617149662854,
+      "recall_weighted": 0.9992810553631933,
+      "mcc": 0.24384644896952878,
+      "accuracy": 0.9992810553631933,
+      "f1_macro": 0.5760023241869247,
+      "inference_latency_ms_per_sample": 0.005852939908917098,
+      "peak_memory_mb_inference": 215.7204818725586,
+      "model_parameter_count": 3458178,
+      "energy_joules_per_sample": 0.0007580490087190486,
+      "training_time_s": 4650.099246287718,
+      "faithfulness": -0.7691,
+      "stability": 0.9381,
+      "kappa_l5": 0.5700000000000001,
+      "kappa_l10": 0.8000000000000002,
+      "n_flagged": 10
+    },
+    {
+      "model": "RandomForest",
+      "task": 6,
+      "f1_weighted": 0.997693239005131,
+      "recall_weighted": 0.9976314933401068,
+      "mcc": 0.995891692107721,
+      "accuracy": 0.9976314933401068,
+      "f1_macro": 0.8307937397186405,
+      "inference_latency_ms_per_sample": 0.006298208423500871,
+      "peak_memory_mb_inference": 1443.476718902588,
+      "model_parameter_count": 11387760,
+      "energy_joules_per_sample": -1.0,
+      "training_time_s": 32933.06220076047,
+      "faithfulness": -0.4182,
+      "stability": 0.9891,
+      "kappa_l5": 0.5,
+      "kappa_l10": 0.5449999999999999,
+      "n_flagged": 11
+    },
+    {
+      "model": "XGBoost",
+      "task": 6,
+      "f1_weighted": 0.9968722735170766,
+      "recall_weighted": 0.9967989138588462,
+      "mcc": 0.9944561267499095,
+      "accuracy": 0.9967989138588462,
+      "f1_macro": 0.8411826211877532,
+      "inference_latency_ms_per_sample": 0.0049549957561415255,
+      "peak_memory_mb_inference": 41.09545707702637,
+      "model_parameter_count": 825118,
+      "energy_joules_per_sample": -1.0,
+      "training_time_s": 1524.0434245057404,
+      "faithfulness": 1.0,
+      "stability": 0.9968,
+      "kappa_l5": 0.39,
+      "kappa_l10": 0.5199999999999999,
+      "n_flagged": 16
+    },
+    {
+      "model": "LightGBM",
+      "task": 6,
+      "f1_weighted": 0.9970614456441402,
+      "recall_weighted": 0.9970061303399093,
+      "mcc": 0.9948136404369989,
+      "accuracy": 0.9970061303399093,
+      "f1_macro": 0.8504500881937583,
+      "inference_latency_ms_per_sample": 0.08203676215491998,
+      "peak_memory_mb_inference": 84.75026035308838,
+      "model_parameter_count": 12000,
+      "energy_joules_per_sample": -1.0,
+      "training_time_s": 1708.7680472135544,
+      "faithfulness": 1.0,
+      "stability": 0.9946,
+      "kappa_l5": 0.25000000000000006,
+      "kappa_l10": 0.41000000000000003,
+      "n_flagged": 20
+    },
+    {
+      "model": "CatBoost",
+      "task": 6,
+      "f1_weighted": 0.996902469045252,
+      "recall_weighted": 0.996788515899223,
+      "mcc": 0.9944375711033007,
+      "accuracy": 0.996788515899223,
+      "f1_macro": 0.822818302945882,
+      "inference_latency_ms_per_sample": 0.0006091098080039937,
+      "peak_memory_mb_inference": 20.545364379882812,
+      "model_parameter_count": 2047000,
+      "energy_joules_per_sample": -1.0,
+      "training_time_s": 9875.723799236119,
+      "faithfulness": 0.9152,
+      "stability": 0.9646,
+      "kappa_l5": 0.37,
+      "kappa_l10": 0.425,
+      "n_flagged": 16
+    },
+    {
+      "model": "CNN1D",
+      "task": 6,
+      "f1_weighted": 0.9939292364971511,
+      "recall_weighted": 0.9935733182414377,
+      "mcc": 0.9888951034839811,
+      "accuracy": 0.9935733182414377,
+      "f1_macro": 0.7652938991151607,
+      "inference_latency_ms_per_sample": 0.004701840494178486,
+      "peak_memory_mb_inference": 1213.4228763580322,
+      "model_parameter_count": 147942,
+      "energy_joules_per_sample": 0.00041955130854034946,
+      "training_time_s": 3241.674201864749,
+      "faithfulness": 0.0,
+      "stability": 0.8435,
+      "kappa_l5": 0.20000000000000004,
+      "kappa_l10": 0.25500000000000006,
+      "n_flagged": 19
+    },
+    {
+      "model": "BiLSTM",
+      "task": 6,
+      "f1_weighted": 0.9963442399871594,
+      "recall_weighted": 0.9960769983764328,
+      "mcc": 0.9932070809925676,
+      "accuracy": 0.9960769983764328,
+      "f1_macro": 0.7803764972094127,
+      "inference_latency_ms_per_sample": 0.005102507327116453,
+      "peak_memory_mb_inference": 1213.4228763580322,
+      "model_parameter_count": 358022,
+      "energy_joules_per_sample": 0.0003946534292158221,
+      "training_time_s": 4094.293979978189,
+      "faithfulness": 0.9152,
+      "stability": 0.8094,
+      "kappa_l5": 0.25000000000000006,
+      "kappa_l10": 0.33499999999999996,
+      "n_flagged": 20
+    },
+    {
+      "model": "FTTransformer",
+      "task": 6,
+      "f1_weighted": 0.9960426716414251,
+      "recall_weighted": 0.9958942913716246,
+      "mcc": 0.9928975246842965,
+      "accuracy": 0.9958942913716246,
+      "f1_macro": 0.8066421145272681,
+      "inference_latency_ms_per_sample": 0.01611290506388186,
+      "peak_memory_mb_inference": 1213.4228763580322,
+      "model_parameter_count": 904038,
+      "energy_joules_per_sample": 0.004268429732348868,
+      "training_time_s": 24724.40765440464,
+      "faithfulness": 1.0,
+      "stability": 0.9695,
+      "kappa_l5": 0.43999999999999995,
+      "kappa_l10": 0.48,
+      "n_flagged": 12
+    },
+    {
+      "model": "SAINT",
+      "task": 6,
+      "f1_weighted": 0.9965240452835418,
+      "recall_weighted": 0.9963607141318669,
+      "mcc": 0.9936994376442362,
+      "accuracy": 0.9963607141318669,
+      "f1_macro": 0.802297650845837,
+      "inference_latency_ms_per_sample": 0.01433155007651192,
+      "peak_memory_mb_inference": 1213.4228763580322,
+      "model_parameter_count": 27377550,
+      "energy_joules_per_sample": 0.003481674944149103,
+      "training_time_s": 53593.347033552825,
+      "faithfulness": 0.7697,
+      "stability": 0.9243,
+      "kappa_l5": 0.36,
+      "kappa_l10": 0.37500000000000006,
+      "n_flagged": 16
+    },
+    {
+      "model": "RandomForest",
+      "task": 19,
+      "f1_weighted": 0.9374495480741208,
+      "recall_weighted": 0.9327393127542858,
+      "mcc": 0.9063940633897652,
+      "accuracy": 0.9327393127542858,
+      "f1_macro": 0.6937325502530665,
+      "inference_latency_ms_per_sample": 0.011808072808645865,
+      "peak_memory_mb_inference": 3713.667932510376,
+      "model_parameter_count": 1550310,
+      "energy_joules_per_sample": -1.0,
+      "training_time_s": 5682.1070192456245,
+      "faithfulness": 1.0,
+      "stability": 0.9965,
+      "kappa_l5": 0.38,
+      "kappa_l10": 0.495,
+      "n_flagged": 13
+    },
+    {
+      "model": "XGBoost",
+      "task": 19,
+      "f1_weighted": 0.9392252732931189,
+      "recall_weighted": 0.9342507304566635,
+      "mcc": 0.9085623250698154,
+      "accuracy": 0.9342507304566635,
+      "f1_macro": 0.725735703896541,
+      "inference_latency_ms_per_sample": 0.02159259435869479,
+      "peak_memory_mb_inference": 107.86575889587402,
+      "model_parameter_count": 1735052,
+      "energy_joules_per_sample": -1.0,
+      "training_time_s": 8395.101218033582,
+      "faithfulness": 0.9515,
+      "stability": 0.992,
+      "kappa_l5": 0.19000000000000003,
+      "kappa_l10": 0.4,
+      "n_flagged": 19
+    },
+    {
+      "model": "LightGBM",
+      "task": 19,
+      "f1_weighted": 0.9376869745656834,
+      "recall_weighted": 0.9325603193064858,
+      "mcc": 0.9064139668337537,
+      "accuracy": 0.9325603193064858,
+      "f1_macro": 0.7184096358012958,
+      "inference_latency_ms_per_sample": 0.007526152281104587,
+      "peak_memory_mb_inference": 218.2909631729126,
+      "model_parameter_count": 2356,
+      "energy_joules_per_sample": -1.0,
+      "training_time_s": 558.0090970378369,
+      "faithfulness": 1.0,
+      "stability": 0.9936,
+      "kappa_l5": 0.26000000000000006,
+      "kappa_l10": 0.29,
+      "n_flagged": 19
+    },
+    {
+      "model": "CatBoost",
+      "task": 19,
+      "f1_weighted": 0.9358790277944959,
+      "recall_weighted": 0.9304346792749354,
+      "mcc": 0.9036971668954027,
+      "accuracy": 0.9304346792749354,
+      "f1_macro": 0.7103708761446783,
+      "inference_latency_ms_per_sample": 0.0007175349667965277,
+      "peak_memory_mb_inference": 20.545364379882812,
+      "model_parameter_count": 255500,
+      "energy_joules_per_sample": -1.0,
+      "training_time_s": 23946.37232619524,
+      "faithfulness": 0.8909,
+      "stability": 0.9963,
+      "kappa_l5": 0.16999999999999998,
+      "kappa_l10": 0.3,
+      "n_flagged": 19
+    },
+    {
+      "model": "CNN1D",
+      "task": 19,
+      "f1_weighted": 0.9307641424520247,
+      "recall_weighted": 0.9253886980120587,
+      "mcc": 0.8958436066495111,
+      "accuracy": 0.9253886980120587,
+      "f1_macro": 0.6529522506508951,
+      "inference_latency_ms_per_sample": 0.0064290961824990086,
+      "peak_memory_mb_inference": 1213.4228763580322,
+      "model_parameter_count": 1001459,
+      "energy_joules_per_sample": 0.0010311613973159781,
+      "training_time_s": 17165.504339650273,
+      "faithfulness": 0.0,
+      "stability": 0.8078,
+      "kappa_l5": 0.13000000000000003,
+      "kappa_l10": 0.21500000000000002,
+      "n_flagged": 19
+    },
+    {
+      "model": "BiLSTM",
+      "task": 19,
+      "f1_weighted": 0.9356353623357712,
+      "recall_weighted": 0.9314447667811928,
+      "mcc": 0.9040768244133922,
+      "accuracy": 0.9314447667811928,
+      "f1_macro": 0.6706324145808115,
+      "inference_latency_ms_per_sample": 0.007024804906102964,
+      "peak_memory_mb_inference": 1213.4228763580322,
+      "model_parameter_count": 1005075,
+      "energy_joules_per_sample": 0.0006742115172436506,
+      "training_time_s": 12375.355109816417,
+      "faithfulness": 0.903,
+      "stability": 0.7295,
+      "kappa_l5": 0.14,
+      "kappa_l10": 0.255,
+      "n_flagged": 20
+    },
+    {
+      "model": "FTTransformer",
+      "task": 19,
+      "f1_weighted": 0.9338167839688463,
+      "recall_weighted": 0.9279792753810481,
+      "mcc": 0.9004692730823997,
+      "accuracy": 0.9279792753810481,
+      "f1_macro": 0.6739571601927806,
+      "inference_latency_ms_per_sample": 0.020669662986102986,
+      "peak_memory_mb_inference": 1213.4228763580322,
+      "model_parameter_count": 1228211,
+      "energy_joules_per_sample": 0.005685926170187125,
+      "training_time_s": 68420.58378768899,
+      "faithfulness": 0.9515,
+      "stability": 0.9769,
+      "kappa_l5": 0.30000000000000004,
+      "kappa_l10": 0.39499999999999996,
+      "n_flagged": 19
+    },
+    {
+      "model": "SAINT",
+      "task": 19,
+      "f1_weighted": 0.9397445912883425,
+      "recall_weighted": 0.9351471831184669,
+      "mcc": 0.9096693635317322,
+      "accuracy": 0.9351471831184669,
+      "f1_macro": 0.7022692863981014,
+      "inference_latency_ms_per_sample": 0.020143638868250286,
+      "peak_memory_mb_inference": 1213.4228763580322,
+      "model_parameter_count": 61448875,
+      "energy_joules_per_sample": 0.005151592245159677,
+      "training_time_s": 248861.01552194543,
+      "faithfulness": 0.9879,
+      "stability": 0.9687,
+      "kappa_l5": 0.30000000000000004,
+      "kappa_l10": 0.39,
+      "n_flagged": 16
+    }
+  ]
+}

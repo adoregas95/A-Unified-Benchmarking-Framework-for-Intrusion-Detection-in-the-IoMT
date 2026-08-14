@@ -1,0 +1,19 @@
+{
+  "target_dataset": "CIC-BoT-IoT",
+  "model": "FTTransformer",
+  "n_novel_samples": 1701,
+  "novel_families": [
+    "Theft"
+  ],
+  "absorption_map": {
+    "Theft": {
+      "0": 12,
+      "1": 100,
+      "2": 113,
+      "3": 1179,
+      "4": 22,
+      "5": 275
+    }
+  },
+  "mean_prediction_confidence": 0.9453579187393188
+}

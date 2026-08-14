@@ -1,0 +1,25 @@
+{
+  "model": "SAINT",
+  "target_dataset": "CIC-ToN-IoT",
+  "source_dataset": "CICIoMT2024",
+  "task": 2,
+  "transfer_type": "zero_shot",
+  "n_test_samples": 5351760,
+  "n_features": 8,
+  "test_metrics": {
+    "accuracy": 0.21829061841338177,
+    "precision_weighted": 0.21864909121562268,
+    "recall_weighted": 0.21829061841338177,
+    "f1_weighted": 0.21709418219457652,
+    "precision_macro": 0.21851343811467364,
+    "recall_macro": 0.22024233204473798,
+    "f1_macro": 0.21799969180174403,
+    "mcc": -0.5612415669345365,
+    "per_class_f1": {
+      "Attack": 0.2029164328712679,
+      "Benign": 0.23308295073222016
+    }
+  },
+  "inference_time_seconds": 27.361035585403442,
+  "confusion_matrix_path": "results/cross_dataset/CIC-ToN-IoT/task_2/SAINT/SAINT_CIC-ToN-IoT_task2_confusion_matrix.png"
+}

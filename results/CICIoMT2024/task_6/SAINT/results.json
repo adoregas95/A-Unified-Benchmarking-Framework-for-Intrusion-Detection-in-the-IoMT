@@ -1,0 +1,101 @@
+{
+  "model": "SAINT",
+  "dataset": "CICIoMT2024",
+  "task": 6,
+  "n_features": 45,
+  "n_train_samples": 16951914,
+  "n_test_samples": 1346418,
+  "hpo": {
+    "n_trials": 108,
+    "best_val_f1": 0.9965555929350092,
+    "best_params": {
+      "embed_dim": 32,
+      "num_heads": 2,
+      "depth": 3,
+      "attn_dropout": 0.29011414011165865,
+      "ff_dropout": 0.05953402896211288,
+      "learning_rate": 0.00023929692022301759,
+      "batch_size": 512
+    }
+  },
+  "test_metrics": {
+    "accuracy": 0.9963607141318669,
+    "precision_weighted": 0.9967956729630489,
+    "recall_weighted": 0.9963607141318669,
+    "f1_weighted": 0.9965240452835418,
+    "precision_macro": 0.7585878197715151,
+    "recall_macro": 0.9292809740290621,
+    "f1_macro": 0.802297650845837,
+    "mcc": 0.9936994376442362,
+    "per_class_f1": {
+      "Benign": 0.31353135313531355,
+      "DDoS": 0.9929407437929285,
+      "DoS": 0.9853821362799263,
+      "MQTT": 0.9997892309408979,
+      "Recon": 0.9982845729056515,
+      "Spoofing": 0.5238578680203045
+    }
+  },
+  "efficiency": {
+    "inference_latency_ms_per_sample": 0.01433155007651192,
+    "batch_throughput_samples_per_sec": 69776.12293585096,
+    "end_to_end_latency_ms_per_sample": 0.01433155007651192,
+    "training_time_seconds": 53593.347033552825,
+    "model_parameter_count": 27377550,
+    "peak_memory_mb_inference": 1213.4228763580322,
+    "gpu_power_watts_inference": 242.93777892561985,
+    "energy_joules_per_sample": 0.003481674944149103
+  },
+  "bootstrap_ci": {
+    "f1_weighted": {
+      "point": 0.9965240452835418,
+      "ci_lower": 0.9964341277469758,
+      "ci_upper": 0.9966162655234598,
+      "ci_width": 0.00018213777648401486,
+      "std": 4.7865139588637487e-05
+    },
+    "f1_macro": {
+      "point": 0.802297650845837,
+      "ci_lower": 0.7926437151923199,
+      "ci_upper": 0.8126034146244585,
+      "ci_width": 0.0199596994321386,
+      "std": 0.005308895291803383
+    },
+    "accuracy": {
+      "point": 0.9963607141318669,
+      "ci_lower": 0.9962670953596877,
+      "ci_upper": 0.9964580278932694,
+      "ci_width": 0.00019093253358171136,
+      "std": 5.0496659694136116e-05
+    },
+    "mcc": {
+      "point": 0.9936994376442362,
+      "ci_lower": 0.9935363428830405,
+      "ci_upper": 0.9938701003141324,
+      "ci_width": 0.0003337574310918745,
+      "std": 8.70377131720261e-05
+    },
+    "precision_weighted": {
+      "point": 0.9967956729630489,
+      "ci_lower": 0.9967100776451057,
+      "ci_upper": 0.9968865486807428,
+      "ci_width": 0.00017647103563711575,
+      "std": 4.538845489683226e-05
+    },
+    "recall_weighted": {
+      "point": 0.9963607141318669,
+      "ci_lower": 0.9962670953596877,
+      "ci_upper": 0.9964580278932694,
+      "ci_width": 0.00019093253358171136,
+      "std": 5.0496659694136116e-05
+    },
+    "_meta": {
+      "n_bootstrap": 1000,
+      "confidence_level": 0.95,
+      "n_test_samples": 1346418,
+      "random_state": 42
+    }
+  },
+  "checkpoint_path": "/mmfs1/home/dsu.local/oswald.adohinzin/dissertation/results/CICIoMT2024/task_6/SAINT/model.pkl",
+  "confusion_matrix_path": "/mmfs1/home/dsu.local/oswald.adohinzin/dissertation/results/CICIoMT2024/task_6/SAINT/confusion_matrix.png"
+}

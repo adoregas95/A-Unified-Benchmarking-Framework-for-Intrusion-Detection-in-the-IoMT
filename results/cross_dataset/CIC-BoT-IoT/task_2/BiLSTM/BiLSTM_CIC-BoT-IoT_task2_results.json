@@ -1,0 +1,25 @@
+{
+  "model": "BiLSTM",
+  "target_dataset": "CIC-BoT-IoT",
+  "source_dataset": "CICIoMT2024",
+  "task": 2,
+  "transfer_type": "zero_shot",
+  "n_test_samples": 13428595,
+  "n_features": 8,
+  "test_metrics": {
+    "accuracy": 0.137016046727152,
+    "precision_weighted": 0.9914361107286201,
+    "recall_weighted": 0.137016046727152,
+    "f1_weighted": 0.23093873661126627,
+    "precision_macro": 0.5026843774649753,
+    "recall_macro": 0.5462549249034542,
+    "f1_macro": 0.1234860224072942,
+    "mcc": 0.02228593081340404,
+    "per_class_f1": {
+      "Attack": 0.23238623100913586,
+      "Benign": 0.014585813805452529
+    }
+  },
+  "inference_time_seconds": 50.129581451416016,
+  "confusion_matrix_path": "results/cross_dataset/CIC-BoT-IoT/task_2/BiLSTM/BiLSTM_CIC-BoT-IoT_task2_confusion_matrix.png"
+}

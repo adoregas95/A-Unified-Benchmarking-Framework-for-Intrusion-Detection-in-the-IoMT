@@ -1,0 +1,38 @@
+{
+  "model": "SAINT",
+  "target_dataset": "CIC-IoT-DIAD-2024",
+  "source_dataset": "CICIoMT2024",
+  "task": 6,
+  "transfer_type": "zero_shot",
+  "n_test_samples": 27620469,
+  "n_features": 45,
+  "test_metrics": {
+    "accuracy": 0.48979352957402716,
+    "precision_weighted": 0.8243743133865594,
+    "recall_weighted": 0.48979352957402716,
+    "f1_weighted": 0.6101190829029234,
+    "precision_macro": 0.22078629129160168,
+    "recall_macro": 0.2595912080335922,
+    "f1_macro": 0.1937145701147057,
+    "mcc": 0.1374762330488519,
+    "per_class_f1": {
+      "Benign": 0.2196756046344602,
+      "DDoS": 0.03389641897385495,
+      "DoS": 0.7158300292202767,
+      "MQTT": 0.0,
+      "Recon": 0.1716419112205007,
+      "Spoofing": 0.021243456639141584
+    },
+    "f1_macro_shared": 0.23245748413764683,
+    "n_shared_classes": 5,
+    "shared_class_names": [
+      "Benign",
+      "DDoS",
+      "DoS",
+      "Recon",
+      "Spoofing"
+    ]
+  },
+  "inference_time_seconds": 363.5621681213379,
+  "confusion_matrix_path": "results/cross_dataset/CIC-IoT-DIAD-2024/task_6/SAINT/SAINT_CIC-IoT-DIAD-2024_task6_confusion_matrix.png"
+}

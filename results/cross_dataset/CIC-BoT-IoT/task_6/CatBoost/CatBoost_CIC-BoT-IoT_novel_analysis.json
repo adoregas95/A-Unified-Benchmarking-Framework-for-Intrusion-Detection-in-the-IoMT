@@ -1,0 +1,19 @@
+{
+  "target_dataset": "CIC-BoT-IoT",
+  "model": "CatBoost",
+  "n_novel_samples": 1701,
+  "novel_families": [
+    "Theft"
+  ],
+  "absorption_map": {
+    "Theft": {
+      "0": 24,
+      "1": 1120,
+      "2": 88,
+      "3": 144,
+      "4": 4,
+      "5": 321
+    }
+  },
+  "mean_prediction_confidence": 0.9178803958434689
+}

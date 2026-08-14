@@ -1,0 +1,19 @@
+{
+  "target_dataset": "CIC-BoT-IoT",
+  "model": "RandomForest",
+  "n_novel_samples": 1701,
+  "novel_families": [
+    "Theft"
+  ],
+  "absorption_map": {
+    "Theft": {
+      "0": 13,
+      "1": 251,
+      "2": 1068,
+      "3": 146,
+      "4": 105,
+      "5": 118
+    }
+  },
+  "mean_prediction_confidence": 0.7422551241356229
+}

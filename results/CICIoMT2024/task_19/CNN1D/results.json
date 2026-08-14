@@ -1,0 +1,113 @@
+{
+    "model": "CNN1D",
+    "dataset": "CICIoMT2024",
+    "task": 19,
+    "n_features": 45,
+    "n_train_samples": 39344734,
+    "n_test_samples": 1346418,
+    "hpo": {
+        "n_trials": 50,
+        "best_val_f1": 0.9313376846460262,
+        "best_params": {
+            "n_filters": 80,
+            "kernel_size": 5,
+            "n_conv_layers": 4,
+            "dropout": 0.2993599823182003,
+            "learning_rate": 0.0012954895654149552,
+            "batch_size": 1024
+        }
+    },
+    "test_metrics": {
+        "accuracy": 0.9253886980120587,
+        "precision_weighted": 0.9473281223997186,
+        "recall_weighted": 0.9253886980120587,
+        "f1_weighted": 0.9307641424520247,
+        "precision_macro": 0.62496458929213,
+        "recall_macro": 0.7998149168499807,
+        "f1_macro": 0.6529522506508951,
+        "mcc": 0.8958436066495111,
+        "per_class_f1": {
+            "ARP-Spoofing": 0.5714285714285714,
+            "Benign": 0.3786407766990291,
+            "DDoS-ICMP-Flood": 0.5086505190311419,
+            "DDoS-SYN-Flood": 0.993318137307341,
+            "DDoS-TCP-Flood": 0.9899815318334412,
+            "DDoS-UDP-Flood": 0.3355311355311355,
+            "DoS-ICMP-Flood": 0.2557077625570776,
+            "DoS-SYN-Flood": 0.9892949632317302,
+            "DoS-TCP-Flood": 0.9731559437044484,
+            "DoS-UDP-Flood": 0.8608707984683024,
+            "MQTT-DDoS-Connect-Flood": 0.9591473877438467,
+            "MQTT-DDoS-Publish-Flood": 0.7072592322338642,
+            "MQTT-DoS-Connect-Flood": 0.9089126117179742,
+            "MQTT-DoS-Publish-Flood": 0.702819956616052,
+            "MQTT-Malformed-Data": 0.20991535671100361,
+            "Recon-OS-Scan": 0.4851048291391535,
+            "Recon-Ping-Sweep": 0.23076923076923078,
+            "Recon-Port-Scan": 0.7565941726409954,
+            "Recon-Vulnerability-Scan": 0.5889898450026724
+        }
+    },
+    "efficiency": {
+        "inference_latency_ms_per_sample": 0.0064290961824990086,
+        "batch_throughput_samples_per_sec": 155542.85884260904,
+        "end_to_end_latency_ms_per_sample": 0.0064290961824990086,
+        "training_time_seconds": 17165.504339650273,
+        "model_parameter_count": 1001459,
+        "peak_memory_mb_inference": 1213.4228763580322,
+        "gpu_power_watts_inference": 160.3897916666667,
+        "energy_joules_per_sample": 0.0010311613973159781
+    },
+    "bootstrap_ci": {
+        "f1_weighted": {
+            "point": 0.9307641424520247,
+            "ci_lower": 0.9303407626149621,
+            "ci_upper": 0.9311548882803207,
+            "ci_width": 0.0008141256653585449,
+            "std": 0.0002037590704699106
+        },
+        "f1_macro": {
+            "point": 0.6529522506508951,
+            "ci_lower": 0.6438182919902979,
+            "ci_upper": 0.6622344695871674,
+            "ci_width": 0.01841617759686942,
+            "std": 0.004704223494768845
+        },
+        "accuracy": {
+            "point": 0.9253886980120587,
+            "ci_lower": 0.9249414929093343,
+            "ci_upper": 0.9258107623338369,
+            "ci_width": 0.0008692694245026056,
+            "std": 0.00022026930469602995
+        },
+        "mcc": {
+            "point": 0.8958436066495111,
+            "ci_lower": 0.8952105008315133,
+            "ci_upper": 0.8964292677124682,
+            "ci_width": 0.0012187668809549024,
+            "std": 0.0003023804956424747
+        },
+        "precision_weighted": {
+            "point": 0.9473281223997186,
+            "ci_lower": 0.9469835733596877,
+            "ci_upper": 0.9476747331588031,
+            "ci_width": 0.0006911597991153817,
+            "std": 0.0001757523528537258
+        },
+        "recall_weighted": {
+            "point": 0.9253886980120587,
+            "ci_lower": 0.9249414929093343,
+            "ci_upper": 0.9258107623338369,
+            "ci_width": 0.0008692694245026056,
+            "std": 0.00022026930469602995
+        },
+        "_meta": {
+            "n_bootstrap": 1000,
+            "confidence_level": 0.95,
+            "n_test_samples": 1346418,
+            "random_state": 42
+        }
+    },
+    "checkpoint_path": "/mmfs1/home/dsu.local/oswald.adohinzin/dissertation/results/CICIoMT2024/task_19/CNN1D/model.pkl",
+    "confusion_matrix_path": "/mmfs1/home/dsu.local/oswald.adohinzin/dissertation/results/CICIoMT2024/task_19/CNN1D/confusion_matrix.png"
+}
