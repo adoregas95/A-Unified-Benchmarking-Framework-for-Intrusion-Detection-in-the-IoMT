@@ -1,99 +1,99 @@
 {
-    "model": "BiLSTM",
-    "dataset": "CICIoMT2024",
-    "task": 6,
-    "n_features": 45,
-    "n_train_samples": 16951914,
-    "n_test_samples": 1346418,
-    "hpo": {
-        "n_trials": 50,
-        "best_val_f1": 0.9963515410529613,
-        "best_params": {
-            "hidden_dim": 96,
-            "n_layers": 2,
-            "dropout": 0.39877865356288333,
-            "learning_rate": 0.001332254487048948,
-            "batch_size": 1024
-        }
+  "model": "BiLSTM",
+  "dataset": "CICIoMT2024",
+  "task": 6,
+  "n_features": 45,
+  "n_train_samples": 16951914,
+  "n_test_samples": 1346418,
+  "hpo": {
+    "n_trials": 50,
+    "best_val_f1": 0.9963515410529613,
+    "best_params": {
+      "hidden_dim": 96,
+      "n_layers": 2,
+      "dropout": 0.39877865356288333,
+      "learning_rate": 0.001332254487048948,
+      "batch_size": 1024
+    }
+  },
+  "test_metrics": {
+    "accuracy": 0.9960769983764328,
+    "precision_weighted": 0.9967502753468822,
+    "recall_weighted": 0.9960769983764328,
+    "f1_weighted": 0.9963442399871594,
+    "precision_macro": 0.7378394188494197,
+    "recall_macro": 0.9402159337408982,
+    "f1_macro": 0.7803764972094127,
+    "mcc": 0.9932070809925676,
+    "per_class_f1": {
+      "Benign": 0.26358695652173914,
+      "DDoS": 0.9926517022620229,
+      "DoS": 0.9850958024104541,
+      "MQTT": 0.9996900209049902,
+      "Recon": 0.9982272254903344,
+      "Spoofing": 0.44300727566693615
+    }
+  },
+  "efficiency": {
+    "inference_latency_ms_per_sample": 0.005102507327116453,
+    "batch_throughput_samples_per_sec": 195982.08016001488,
+    "end_to_end_latency_ms_per_sample": 0.005102507327116453,
+    "training_time_seconds": 4094.293979978189,
+    "model_parameter_count": 358022,
+    "peak_memory_mb_inference": 1213.4228763580322,
+    "gpu_power_watts_inference": 77.345,
+    "energy_joules_per_sample": 0.0003946534292158221
+  },
+  "bootstrap_ci": {
+    "f1_weighted": {
+      "point": 0.9963442399871594,
+      "ci_lower": 0.9962549973388422,
+      "ci_upper": 0.9964378557264881,
+      "ci_width": 0.00018285838764597884,
+      "std": 4.933387243640714e-05
     },
-    "test_metrics": {
-        "accuracy": 0.9960769983764328,
-        "precision_weighted": 0.9967502753468822,
-        "recall_weighted": 0.9960769983764328,
-        "f1_weighted": 0.9963442399871594,
-        "precision_macro": 0.7378394188494197,
-        "recall_macro": 0.9402159337408982,
-        "f1_macro": 0.7803764972094127,
-        "mcc": 0.9932070809925676,
-        "per_class_f1": {
-            "Benign": 0.26358695652173914,
-            "DDoS": 0.9926517022620229,
-            "DoS": 0.9850958024104541,
-            "MQTT": 0.9996900209049902,
-            "Recon": 0.9982272254903344,
-            "Spoofing": 0.44300727566693615
-        }
+    "f1_macro": {
+      "point": 0.7803764972094127,
+      "ci_lower": 0.7715217849542633,
+      "ci_upper": 0.7892697007954683,
+      "ci_width": 0.017747915841205053,
+      "std": 0.004690149818668005
     },
-    "efficiency": {
-        "inference_latency_ms_per_sample": 0.005102507327116453,
-        "batch_throughput_samples_per_sec": 195982.08016001488,
-        "end_to_end_latency_ms_per_sample": 0.005102507327116453,
-        "training_time_seconds": 4094.293979978189,
-        "model_parameter_count": 358022,
-        "peak_memory_mb_inference": 1213.4228763580322,
-        "gpu_power_watts_inference": 77.345,
-        "energy_joules_per_sample": 0.0003946534292158221
+    "accuracy": {
+      "point": 0.9960769983764328,
+      "ci_lower": 0.9959796846150304,
+      "ci_upper": 0.996179511117647,
+      "ci_width": 0.00019982650261662904,
+      "std": 5.284331877263445e-05
     },
-    "bootstrap_ci": {
-        "f1_weighted": {
-            "point": 0.9963442399871594,
-            "ci_lower": 0.9962549973388422,
-            "ci_upper": 0.9964378557264881,
-            "ci_width": 0.00018285838764597884,
-            "std": 4.933387243640714e-05
-        },
-        "f1_macro": {
-            "point": 0.7803764972094127,
-            "ci_lower": 0.7715217849542633,
-            "ci_upper": 0.7892697007954683,
-            "ci_width": 0.017747915841205053,
-            "std": 0.004690149818668005
-        },
-        "accuracy": {
-            "point": 0.9960769983764328,
-            "ci_lower": 0.9959796846150304,
-            "ci_upper": 0.996179511117647,
-            "ci_width": 0.00019982650261662904,
-            "std": 5.284331877263445e-05
-        },
-        "mcc": {
-            "point": 0.9932070809925676,
-            "ci_lower": 0.993037358878398,
-            "ci_upper": 0.9933849645325333,
-            "ci_width": 0.0003476056541353856,
-            "std": 9.11032066601221e-05
-        },
-        "precision_weighted": {
-            "point": 0.9967502753468822,
-            "ci_lower": 0.9966621225345617,
-            "ci_upper": 0.9968385360109803,
-            "ci_width": 0.00017641347641861316,
-            "std": 4.694016858971734e-05
-        },
-        "recall_weighted": {
-            "point": 0.9960769983764328,
-            "ci_lower": 0.9959796846150304,
-            "ci_upper": 0.996179511117647,
-            "ci_width": 0.00019982650261662904,
-            "std": 5.284331877263445e-05
-        },
-        "_meta": {
-            "n_bootstrap": 1000,
-            "confidence_level": 0.95,
-            "n_test_samples": 1346418,
-            "random_state": 42
-        }
+    "mcc": {
+      "point": 0.9932070809925676,
+      "ci_lower": 0.993037358878398,
+      "ci_upper": 0.9933849645325333,
+      "ci_width": 0.0003476056541353856,
+      "std": 9.11032066601221e-05
     },
-    "checkpoint_path": "/mmfs1/home/dsu.local/oswald.adohinzin/dissertation/results/CICIoMT2024/task_6/BiLSTM/model.pkl",
-    "confusion_matrix_path": "/mmfs1/home/dsu.local/oswald.adohinzin/dissertation/results/CICIoMT2024/task_6/BiLSTM/confusion_matrix.png"
+    "precision_weighted": {
+      "point": 0.9967502753468822,
+      "ci_lower": 0.9966621225345617,
+      "ci_upper": 0.9968385360109803,
+      "ci_width": 0.00017641347641861316,
+      "std": 4.694016858971734e-05
+    },
+    "recall_weighted": {
+      "point": 0.9960769983764328,
+      "ci_lower": 0.9959796846150304,
+      "ci_upper": 0.996179511117647,
+      "ci_width": 0.00019982650261662904,
+      "std": 5.284331877263445e-05
+    },
+    "_meta": {
+      "n_bootstrap": 1000,
+      "confidence_level": 0.95,
+      "n_test_samples": 1346418,
+      "random_state": 42
+    }
+  },
+  "checkpoint_path": "results/CICIoMT2024/task_6/BiLSTM/model.pkl",
+  "confusion_matrix_path": "results/CICIoMT2024/task_6/BiLSTM/confusion_matrix.png"
 }

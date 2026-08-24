@@ -96,6 +96,6 @@
       "random_state": 42
     }
   },
-  "checkpoint_path": "/mmfs1/home/dsu.local/oswald.adohinzin/dissertation/results/CICIoMT2024/task_6/SAINT/model.pkl",
-  "confusion_matrix_path": "/mmfs1/home/dsu.local/oswald.adohinzin/dissertation/results/CICIoMT2024/task_6/SAINT/confusion_matrix.png"
+  "checkpoint_path": "results/CICIoMT2024/task_6/SAINT/model.pkl",
+  "confusion_matrix_path": "results/CICIoMT2024/task_6/SAINT/confusion_matrix.png"
 }

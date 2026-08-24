@@ -40,8 +40,8 @@
     "gpu_power_watts_inference": 71.42581560283688,
     "energy_joules_per_sample": 0.000296638974938811
   },
-  "checkpoint_path": "/mmfs1/home/dsu.local/oswald.adohinzin/dissertation/results/CICIoMT2024/task_2/BiLSTM/model.pkl",
-  "confusion_matrix_path": "/mmfs1/home/dsu.local/oswald.adohinzin/dissertation/results/CICIoMT2024/task_2/BiLSTM/confusion_matrix.png",
+  "checkpoint_path": "results/CICIoMT2024/task_2/BiLSTM/model.pkl",
+  "confusion_matrix_path": "results/CICIoMT2024/task_2/BiLSTM/confusion_matrix.png",
   "bootstrap_ci": {
     "f1_weighted": {
       "point": 0.9995925609486414,
