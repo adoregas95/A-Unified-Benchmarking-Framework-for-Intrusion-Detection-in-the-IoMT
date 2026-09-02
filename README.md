@@ -5,7 +5,7 @@ This repository contains the complete codebase for the doctoral dissertation:
 > **A Unified Benchmarking Framework for Intrusion Detection in the Internet of Medical Things**
 > Oswald Adohinzin, Dakota State University, 2026
 
-**Dissertation:** [Link to published dissertation](TODO)
+**Dissertation:** Dissertation link forthcoming
 
 The framework evaluates **8 machine learning models** across **3 architectural families** on the CIC-IoMT-2024 dataset, measuring performance, computational efficiency, explainability, and cross-dataset generalization.
 
