@@ -42,12 +42,22 @@
 set -euo pipefail
 
 # --- Environment setup ---
-export PATH="/mmfs1/cm/shared/apps_local/python/3.11/bin:$PATH"
+# --- Portability: adjust these for your cluster ----------------------------
+# PYTHON_BIN  Directory containing python3.11+. The value below is the one used
+#             for the original runs on the SDSU HPC cluster. Override it by
+#             exporting PYTHON_BIN, or replace this with `module load python/3.11`.
+# PROJECT_ROOT Directory where you cloned this repository.
+# Also review the #SBATCH partition, memory, GPU and walltime requests above,
+# which are specific to the cluster these jobs were run on.
+PYTHON_BIN="${PYTHON_BIN:-/mmfs1/cm/shared/apps_local/python/3.11/bin}"
+export PROJECT_ROOT="${PROJECT_ROOT:-$HOME/dissertation}"
+# ---------------------------------------------------------------------------
+export PATH="$PYTHON_BIN:$PATH"
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 export MKL_NUM_THREADS=$SLURM_CPUS_PER_TASK
 export PYTHONUNBUFFERED=1
 
-cd ~/dissertation
+cd "$PROJECT_ROOT"
 mkdir -p logs/explainability results
 
 # --------------------------------------------------------------------------
@@ -93,7 +103,7 @@ python3 -c "import shap; import lime.lime_tabular; print(f'SHAP {shap.__version_
 # --------------------------------------------------------------------------
 python3 -c "
 import sys, os, logging
-sys.path.insert(0, os.path.expanduser('~/dissertation'))
+sys.path.insert(0, os.environ.get('PROJECT_ROOT', os.path.expanduser('~/dissertation')))
 
 logging.basicConfig(
     level=logging.INFO,
@@ -106,7 +116,7 @@ from evaluation.explainability.shap_analysis import run_shap_analysis
 from evaluation.explainability.lime_analysis import run_lime_analysis, generate_consistency_report
 
 config = load_config()
-cache_dir = os.path.join(os.path.expanduser('~/dissertation'), config['preprocessing']['cache_dir'])
+cache_dir = os.path.join(os.environ.get('PROJECT_ROOT', os.path.expanduser('~/dissertation')), config['preprocessing']['cache_dir'])
 random_state = config['preprocessing']['random_state']
 
 model_name = '$MODEL'
@@ -123,14 +133,14 @@ n_classes = len(class_names)
 
 # Load model
 checkpoint_path = os.path.join(
-    os.path.expanduser('~/dissertation'),
+    os.environ.get('PROJECT_ROOT', os.path.expanduser('~/dissertation')),
     'results', 'CICIoMT2024', f'task_{task}', model_name, 'model.pkl',
 )
 model = get_model_instance(model_name, random_state, input_dim=input_dim, n_classes=n_classes)
 model.load_checkpoint(checkpoint_path)
 
 xai_dir = os.path.join(
-    os.path.expanduser('~/dissertation'),
+    os.environ.get('PROJECT_ROOT', os.path.expanduser('~/dissertation')),
     'results', 'CICIoMT2024', f'task_{task}', model_name, 'explainability',
 )
 

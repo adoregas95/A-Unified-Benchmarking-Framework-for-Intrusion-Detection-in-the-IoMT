@@ -24,7 +24,7 @@
 # 9-day walltime: SMOTEENN boundary cleanup is O(n²) — generous time.
 #
 # Usage:
-#   cd ~/dissertation
+#   cd "$PROJECT_ROOT"
 #   mkdir -p logs/preprocessing
 #   sbatch scripts/slurm_preprocess_task2.sh
 #
@@ -33,13 +33,23 @@
 set -euo pipefail
 
 # --- Environment setup ---
-export PATH="/mmfs1/cm/shared/apps_local/python/3.11/bin:$PATH"
+# --- Portability: adjust these for your cluster ----------------------------
+# PYTHON_BIN  Directory containing python3.11+. The value below is the one used
+#             for the original runs on the SDSU HPC cluster. Override it by
+#             exporting PYTHON_BIN, or replace this with `module load python/3.11`.
+# PROJECT_ROOT Directory where you cloned this repository.
+# Also review the #SBATCH partition, memory, GPU and walltime requests above,
+# which are specific to the cluster these jobs were run on.
+PYTHON_BIN="${PYTHON_BIN:-/mmfs1/cm/shared/apps_local/python/3.11/bin}"
+export PROJECT_ROOT="${PROJECT_ROOT:-$HOME/dissertation}"
+# ---------------------------------------------------------------------------
+export PATH="$PYTHON_BIN:$PATH"
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 export MKL_NUM_THREADS=$SLURM_CPUS_PER_TASK
 export PYTHONUNBUFFERED=1
 
 # --- Navigate to project root ---
-cd ~/dissertation
+cd "$PROJECT_ROOT"
 mkdir -p logs/preprocessing
 
 # --- Provenance ---
