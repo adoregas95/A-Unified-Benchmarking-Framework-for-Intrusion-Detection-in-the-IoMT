@@ -11,7 +11,7 @@
 #SBATCH --output=logs/cross_dataset/xds_array_%A_%a.out
 #SBATCH --error=logs/cross_dataset/xds_array_%A_%a.err
 #SBATCH --mail-type=END,FAIL
-#SBATCH --mail-user=oswald.adohinzin@trojans.dsu.edu
+#SBATCH --mail-user=your.email@institution.edu
 #
 # ===========================================================================
 # SLURM Array Job: Cross-Dataset Generalization (Zero-Shot)
