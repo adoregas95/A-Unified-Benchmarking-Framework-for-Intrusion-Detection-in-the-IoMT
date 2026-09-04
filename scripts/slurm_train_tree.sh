@@ -10,7 +10,7 @@
 #SBATCH --output=logs/training/tree_array_%A_%a.out
 #SBATCH --error=logs/training/tree_array_%A_%a.err
 #SBATCH --mail-type=END,FAIL
-#SBATCH --mail-user=oswald.adohinzin@trojans.dsu.edu
+#SBATCH --mail-user=your.email@institution.edu
 #
 # ===========================================================================
 # SLURM Array Job: Train all tree-based models on CICIoMT2024
