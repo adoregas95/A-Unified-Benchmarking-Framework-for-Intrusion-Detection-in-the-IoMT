@@ -98,8 +98,8 @@ A **Multi-Criteria Decision Making (MCDM)** composite score ranks models: `Final
 ### Installation
 
 ```bash
-git clone https://github.com/adoregas95/iomt-ids-framework.git
-cd iomt-ids-framework
+git clone https://github.com/adoregas95/A-Unified-Benchmarking-Framework-for-Intrusion-Detection-in-the-IoMT.git
+cd A-Unified-Benchmarking-Framework-for-Intrusion-Detection-in-the-IoMT
 pip install -r requirements.txt
 ```
 
