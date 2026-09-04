@@ -147,7 +147,12 @@ python scripts/generate_report.py
 
 ### HPC (SLURM)
 
-SLURM job scripts are provided in `scripts/slurm_*.sh`. Each script submits independent jobs for parallel execution on an HPC cluster. Edit the resource requests (partition, memory, walltime) to match your cluster configuration.
+SLURM job scripts are provided in `scripts/slurm_*.sh`. Each script submits independent jobs for parallel execution on an HPC cluster. Each script reads two variables you may need to set: `PYTHON_BIN`, the directory holding python3.11+, and `PROJECT_ROOT`, where you cloned this repository. Their defaults reproduce the original SDSU HPC environment. Also edit the resource requests (partition, memory, GPU, walltime) to match your cluster configuration.
+
+```bash
+export PROJECT_ROOT=/path/to/this/repo
+export PYTHON_BIN=/path/to/python3.11/bin
+```
 
 ```bash
 sbatch scripts/slurm_train_tree.sh      # All tree-based models
